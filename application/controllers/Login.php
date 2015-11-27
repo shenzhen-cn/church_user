@@ -24,7 +24,8 @@ class Login extends MY_Controller {
 			
 
 			if (!empty($checkcode1) && ($checkcode != $cookie_checkcode)) {
-				if(!empty($this->input->post('checkcode'))){
+				$temp_checkcode = $this->input->post('checkcode');
+				if(!empty($temp_checkcode)){
 					$data['error'] = '验证码输入错误！';
 				}
 
