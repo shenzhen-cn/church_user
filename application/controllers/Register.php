@@ -73,7 +73,7 @@ class Register extends MY_Controller {
 		$params['userHeadSrc'] = null;
 		if(!empty($temp_uploadphoto)){
 			$fileInfo = $_FILES['uploadphoto'];
-			var_dump(empty($fileInfo));exit;
+			// var_dump(empty($fileInfo));exit;
 			$uploadPath = "public/uploads/userHeadsrc";
 			//		echo $uploadPath;exit;
 			$params['userHeadSrc']	= uploadfiles($fileInfo,$uploadPath)['newName'];
