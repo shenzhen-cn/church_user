@@ -92,7 +92,8 @@ class Group extends MY_Controller {
 
            $params['book_id'] = $this->input->get('book_id');
            $params['chapter_id'] = $this->input->get('chapter_id');
-           if (!empty($this->input->get())) {
+           $temp_get = $this->input->get(); 
+           if (!empty($temp_get)) {
                $url = API_BASE_LINK.'group/spirituality';
                $result = doCurl($url, $params, 'POST');
                if ($result && $result['http_status_code'] == 200 ) {
@@ -135,8 +136,8 @@ class Group extends MY_Controller {
                 show_404();exit();
             } 
 
-
-            if (! empty($this->input->post()) && ! empty($group_id) ) {
+            $temp_post = $this->input->post();
+            if (! empty($temp_post) && ! empty($group_id) ) {
                 $params['group_prayer_content'] = $this->input->post('group_prayer_content') ? $this->input->post('group_prayer_content') : ""; 
                 $params['group_id']             = $group_id;
 
