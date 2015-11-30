@@ -88,7 +88,6 @@ class Register extends MY_Controller {
 		$result = doCurl($url, $params, 'POST');
 
 		$is_bool = json_decode($result['output'])->results;
-//		var_dump($is_bool);exit;
 		redirect(site_url('login'),'refresh');
 
 
