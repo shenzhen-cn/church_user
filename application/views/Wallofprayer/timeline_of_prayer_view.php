@@ -30,7 +30,7 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li class="active">祷告墙</li>
 			</ol>
 		</section>
@@ -150,7 +150,7 @@
 			// console.log(currentPage);
 
 
-			var url  = "<?php echo base_url('WallOfPrayer/get_json_wallofprayer');?>";	
+			var url  = "<?php echo site_url('Wallofprayer/get_json_wallofprayer');?>";
 
 			 htmlobj=$.ajax({
 			 	url:url,

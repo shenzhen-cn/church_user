@@ -1,6 +1,9 @@
-<?php 
+<?php
+//	echo "sdfsd";exit;
 	$content_prayer       = isset($content_prayer) ? $content_prayer : '' ;
+//	var_dump($content_prayer);exit;
 	$urgent_prayer        = isset($urgent_prayer) ? $urgent_prayer : "" ;
+
 	$total                = isset($total) ? $total : "" ;
 	$is_send              = isset($is_send) ? $is_send : "" ;
 	$group_leader_id      = isset($user_info->group_leader_id) ? $user_info->group_leader_id : "" ;
@@ -28,7 +31,7 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li>祷告墙</li>
 				<li class="active">今日祷告</li>
 			</ol>
@@ -79,7 +82,7 @@
 														$created_at = $v->created_at;
 														$conversion_time = $v->conversion_time;
 														$user_group_id = $v->group_id;
-														$userHeadSrc = $v->userHeadSrc;	?>	 												
+														$userHeadSrc = $v->userHeadSrc;?>
 
 												<?php if ($prayer_user_id == $user_id ){ ?>
 												<br><br>
@@ -90,7 +93,7 @@
 														<span class="direct-chat-timestamp pull-left"><?php echo $conversion_time; ?></span>
 													</div><!-- /.direct-chat-info -->
 													<?php if (empty($userHeadSrc)) {?>
-													   <img src="<?php echo base_url(); ?>images/mrpho.jpg" class="direct-chat-img" alt="用户头像">
+													   <img src="<?php echo base_url(); ?>public/images/mrpho.jpg" class="direct-chat-img" alt="用户头像">
 													<?php } else { ?>
 													 <img src="<?php echo base_url()."public/uploads/userHeadsrc/$userHeadSrc"; ?>" class="direct-chat-img" alt="用户头像">
 													 <?php   } ?>
@@ -100,7 +103,7 @@
 															<div class="clearfix">															
 															</div>
 															<br>
-										      				<a href="<?php echo base_url('wallOfPrayer/del_payer?urgent_id='.$urgent_id.'&del_by='.$user_id); ?>" type="button" class="btn btn-warning btn-xs" onclick=" return drop_confirm()"><span class="pull-right">删除</span></a>
+										      				<a href="<?php echo site_url('Wallofprayer/del_payer?urgent_id='.$urgent_id.'&del_by='.$user_id); ?>" type="button" class="btn btn-warning btn-xs" onclick=" return drop_confirm()"><span class="pull-right">删除</span></a>
 													</div><!-- /.direct-chat-text -->
 												</div><!-- /.direct-chat-msg -->																
 
@@ -122,7 +125,7 @@
 															<div class="clearfix">															
 															</div>
 															<br>
-										      				<a href="<?php echo base_url('wallOfPrayer/del_payer?urgent_id='.$urgent_id.'&del_by='.$user_id); ?>" type="button" class="btn btn-warning btn-xs" onclick=" return drop_confirm()"><span class="pull-right">删除</span></a>
+										      				<a href="<?php echo site_url('Wallofprayer/del_payer?urgent_id='.$urgent_id.'&del_by='.$user_id); ?>" type="button" class="btn btn-warning btn-xs" onclick=" return drop_confirm()"><span class="pull-right">删除</span></a>
 														<?php } ?>													
 													</div><!-- /.direct-chat-text -->
 												</div><!-- /.direct-chat-msg -->
@@ -138,7 +141,7 @@
 										<?php if (!empty($is_send == 'N')) { ?>
 
 											<div class="box-footer">
-												<form action="<?php echo base_url('wallOfPrayer/send_prayer'); ?>" method="post">
+												<form action="<?php echo site_url('wallofprayer/send_prayer'); ?>" method="post">
 													<div class="input-group">
 
 														<textarea onpropertychange="if(value.length>400) value=value.substr(0,400)" onKeyDown="LimitTextArea(this)" onKeyUp="LimitTextArea(this)" onkeypress="LimitTextArea(this)" name="content_prayer" placeholder="祷告内容..." class="form-control" required="required" style="width: 100%; height: 34px; font-size: 14px; line-height: 20px;  solid #dddddd; padding: 10px; resize: none;"></textarea>
@@ -220,7 +223,7 @@
 																	<div class="clearfix">															
 																	</div>
 																	<br>
-												      				<a href="<?php echo base_url('wallOfPrayer/del_group_payer?prayer_for_group_id='.$prayer_for_group_id.'&del_by='.$user_id); ?>" type="button" class="btn btn-warning btn-xs" onclick=" return drop_confirm()"><span class="pull-right">删除</span></a>
+												      				<a href="<?php echo site_url('Wallofprayer/del_group_payer?prayer_for_group_id='.$prayer_for_group_id.'&del_by='.$user_id); ?>" type="button" class="btn btn-warning btn-xs" onclick=" return drop_confirm()"><span class="pull-right">删除</span></a>
 															</div><!-- /.direct-chat-text -->
 														</div><!-- /.direct-chat-msg -->																
 
@@ -242,7 +245,7 @@
 																	<div class="clearfix">															
 																	</div>
 																	<br>
-												      				<a href="<?php echo base_url('wallOfPrayer/del_group_payer?prayer_for_group_id='.$prayer_for_group_id.'&del_by='.$user_id); ?>" type="button" class="btn btn-warning btn-xs" onclick=" return drop_confirm()"><span class="pull-right">删除</span></a>
+												      				<a href="<?php echo site_url('Wallofprayer/del_group_payer?prayer_for_group_id='.$prayer_for_group_id.'&del_by='.$user_id); ?>" type="button" class="btn btn-warning btn-xs" onclick=" return drop_confirm()"><span class="pull-right">删除</span></a>
 																<?php } ?>													
 															</div><!-- /.direct-chat-text -->
 														</div><!-- /.direct-chat-msg -->
@@ -255,7 +258,7 @@
 											</div><!-- /.box-body -->
 											<?php if ($is_send_group_prayer == 'N') { ?>												
 												<div class="box-footer">
-													<form action="<?php echo base_url('wallOfPrayer/send_group_prayer'); ?>" method="post">
+													<form action="<?php echo site_url('Wallofprayer/send_group_prayer'); ?>" method="post">
 														<div class="input-group">
 															<textarea onpropertychange="if(value.length>400) value=value.substr(0,400)" onKeyDown="LimitTextArea(this)" onKeyUp="LimitTextArea(this)" onkeypress="LimitTextArea(this)" name="group_prayer_contents" placeholder="祷告内容..." class="form-control" required="required" style="width: 100%; height: 34px; font-size: 14px; line-height: 20px;  solid #dddddd; padding: 10px; resize: none;"></textarea>
 															<input type="hidden" name="group_prayer_id" value="<?php echo $group_prayer_id; ?>">

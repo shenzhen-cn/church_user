@@ -131,10 +131,11 @@ class Fellowship_life extends MY_Controller {
 		    $group_id  = $this->input->get('group_id') ? $this->input->get('group_id') : "" ;
 		    $data['group_id']  = $group_id; 
 		    $result = doCurl(API_BASE_LINK.'fellowship_life/group_albums?group_id='.$group_id);
-
+//			var_dump($result);exit;
 		    if ($result && $result['http_status_code'] == 200) {
 
 		    	$content = json_decode($result['output']);
+//				var_dump($content);exit;
 		    	$status_code = $content->status_code;
 
 		    	if ($status_code == 200) {					
@@ -379,7 +380,7 @@ class Fellowship_life extends MY_Controller {
 				'&limit='.$data['results'].	
 				'&page='.$data['page']
 				);
-
+//			var_dump($result);exit;
 			if ($result && $result['http_status_code'] == 200) {
 
 				$content = json_decode($result['output']);

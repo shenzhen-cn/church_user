@@ -29,14 +29,14 @@ class Login extends MY_Controller {
 					$data['error'] = '验证码输入错误！';
 				}
 
-				$this->load->view('login_view',isset($data) ? $data : "");						    	
+				$this->load->view('login_view',isset($data) ? $data : "");
 
 		    } else{
 					if (! empty($user_name_email)) {
 						$result = doCurl(API_BASE_LINK.'login/login_email/find?user_name_email='.$user_name_email.'&password='.$password);
 					}
 
-					// var_dump($result);exit;
+//					 var_dump($result);exit;
 				    if (isset($result) && $result['http_status_code'] == 400)
 					{
 					    $result = json_decode($result['output']);
@@ -74,7 +74,7 @@ class Login extends MY_Controller {
 
 				$this->load->view('login_view',isset($data) ? $data : "");						    	
 
-		    }		    			
+		    }
 		}
 	}	
 

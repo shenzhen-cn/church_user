@@ -26,7 +26,7 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li>小组</li>
 				<li class="active">小组灵修设置</li>
 			</ol>
@@ -37,7 +37,7 @@
 			<div class="row">
 				<div class="col-md-3">
 					<?php $this->load->view('tq_alerts'); ?>
-					<form action="<?php echo base_url('spirituality'); ?>" method="get">
+					<form action="<?php echo site_url('spirituality'); ?>" method="get">
 						<div class="box box-primary">
 							<div class="box-body box-profile">
 								<h3 class="profile-username text-center">设置当日经文</h3>
@@ -93,7 +93,7 @@
 					<div class="box-footer no-padding">
 						<br>
 						<button class="btn btn-warning pull-right" onclick="window.history.back()">返回</button>
-						<a type="button" href="<?php echo base_url('group/setting_spirituality?testament='."$testament".'&book_id='."$get_book_id".'&chapter_id='."$chapter_id".'&group_id='."$group_id"); ?>" class="btn btn-primary pull-left">设置</a>
+						<a type="button" href="<?php echo site_url('group/setting_spirituality?testament='."$testament".'&book_id='."$get_book_id".'&chapter_id='."$chapter_id".'&group_id='."$group_id"); ?>" class="btn btn-primary pull-left">设置</a>
 					</div>
 
 				</div><!-- /.tab-content -->

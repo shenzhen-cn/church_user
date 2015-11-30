@@ -30,7 +30,7 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li>小组</li>
 				<li class="active">小组灵修审核</li>
 			</ol>
@@ -40,7 +40,7 @@
 		<section class="content">
 			<div class="row">
 				<div class="col-md-12">
-					<form action="<?php echo base_url('checkSpiri'); ?>" method="post">
+					<form action="<?php echo site_url('checkSpiri'); ?>" method="post">
 						<div class="box box-danger">
 						  <div class="box-header">
 						    <h3 class="box-title">搜索框</h3>
@@ -151,7 +151,7 @@
 					     	       <img src="<?php echo base_url()."public/uploads/userHeadsrc/$user_userHead_src"; ?>" class="img-circle img-bordered-sm">
 					     	       <?php   } ?> 
 					     	      <span class='username'>
-					     	        <a href="<?php echo base_url('seeMember?user_id='."$users_id".'&content=coments'); ?>"><?php echo $group_user_nick; ?></a>
+					     	        <a href="<?php echo site_url('seeMember?user_id='."$users_id".'&content=coments'); ?>"><?php echo $group_user_nick; ?></a>
 					     	      </span>
 					     	      <span class='description'>灵修：<?php echo $directory; ?>:<?php echo $chapter_id; ?> 章节	<span class="pull-right"><?php echo $conversion_time; ?></span></span>
 					     	    </div><!-- /.user-block -->

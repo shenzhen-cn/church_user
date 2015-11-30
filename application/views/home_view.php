@@ -3,6 +3,7 @@
 	$nick                    =      isset($user_info->nick) ? $user_info->nick : "" ;	
 	$sex                     =      isset($user_info->sex) ? $user_info->sex : "" ;	
 	$home_inform             = 		isset($home_inform) ? $home_inform : "";
+//var_dump($home_inform);exit;
 	$urgent_prayer           = 		isset($urgent_prayer) ? $urgent_prayer : "";
 	$bible_section           = 		isset($bible_section) ? $bible_section : "" ; 
 	$bible_note              = 		isset($bible_note) ? $bible_note : "" ; 
@@ -121,7 +122,7 @@
 							<div class="info-box-content">
 								<span class="chart"><?php echo $urgent_prayer->urgent_prayer_content; ?></span>
 							</div><!-- /.info-box-content -->
-							<a href="<?php echo base_url('wallofprayer/prayer#urgent_prayer'); ?>" class="btn btn-sm btn-info btn-flat pull-right">代祷</a>													
+							<a href="<?php echo site_url('Wallofprayer/prayer#urgent_prayer'); ?>" class="btn btn-sm btn-info btn-flat pull-right">代祷</a>
 						</div><!-- ./box-body -->
 					</div><!-- /.box -->
 				</div><!-- /.col -->
@@ -145,7 +146,7 @@
 							<div class="info-box-content">
 								<span class="chart"><?php echo $today_group_prayer->group_prayer_content; ?></span>
 							</div><!-- /.info-box-content -->
-							<a href="<?php echo base_url('wallofprayer/prayer#group_prayer'); ?>" class="btn btn-sm btn-info btn-flat pull-right">代祷</a>													
+							<a href="<?php echo site_url('wallofprayer/prayer#group_prayer'); ?>" class="btn btn-sm btn-info btn-flat pull-right">代祷</a>
 						</div><!-- ./box-body -->
 					</div><!-- /.box -->
 				</div><!-- /.col -->
@@ -288,7 +289,7 @@
 																		<?php if ($user_id == $group_leader_id ) { 
 																			?>																			
 																 	        <div class="timeline-footer pull-right">										 	         
-									      								        <a href="<?php echo base_url('delete_spirituality?s_id='."$spirituality_id"); ?>" class="btn btn-danger btn-xs">删除</a>
+									      								        <a href="<?php echo site_url('delete_spirituality?s_id='."$spirituality_id"); ?>" class="btn btn-danger btn-xs">删除</a>
 																 	        </div>
 																		<?php } ?>
 																			<?php if (!empty($is_praised) && $is_praised == 'Y'  ) { ?>																																						
@@ -322,7 +323,7 @@
 										<div class="row">
 											<div class="col-sm-12">																								
 												<?php if(empty($status_spirituality)){ ?>
-												<form action="<?php echo base_url('home/send_spirituality'); ?>" method="post">
+												<form action="<?php echo site_url('home/send_spirituality'); ?>" method="post">
 													<div class="form-group">
 														<label for="gold_sentence">选择金句：</label>
 														<textarea type="textarea" class="form-control" name="gold_sentence" value="121212112"  id="gold_sentence" length="400" placeholder="请点击选择上面的经文:" style="width: 100%; height: 70px; font-size: 14px; line-height: 20px;  solid #dddddd; padding: 10px;"></textarea>
@@ -379,7 +380,7 @@
 											</div><!-- /.mailbox-read-message -->
 										</div><!-- /.box-body -->
 										<div class="box-footer text-left">
-											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="<?php echo base_url('read_myEdit'); ?>" class="uppercase label-info">阅读更多<i class="fa  fa-angle-double-right"></i></a></strong>												
+											&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><a href="<?php echo site_url('read_myEdit'); ?>" class="uppercase label-info">阅读更多<i class="fa  fa-angle-double-right"></i></a></strong>
 										</div><!-- /.box-footer -->
 									</div><!-- /. box -->
 								</div><!-- /.col -->
@@ -396,7 +397,7 @@
 		      // alert(spirituality_id);
 		      var total_praises = $('.data-total-praises_'+spirituality_id).attr('data-total-praises');
 
-		     $.post("<?php echo base_url('add_praise') ?>",               
+		     $.post("<?php echo site_url('add_praise') ?>",
 		        {
 		          spirituality_id:spirituality_id,
 		        },

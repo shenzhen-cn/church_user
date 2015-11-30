@@ -42,7 +42,7 @@ class Resetpassword extends MY_Controller {
 				        $this->session->unset_userdata('access_token',isset($data) ? $data : "");
 						$this->session->set_flashdata('success', '密码重置成功，请重新登录！');
 
-						redirect('login','refresh');
+						redirect(site_url('login'),'refresh');
 					}
 				}else{
 					show_404();exit;
@@ -57,6 +57,7 @@ class Resetpassword extends MY_Controller {
 	public function forgetpassword() {
 
 		$params['user_email']  	=  $this->input->post('user_email');
+//		var_dump($params);exit;
 		$checkcode1		  		=  strtolower(trim($this->input->post('checkcode_f')));
 		$checkcode        		=  md5($checkcode1);
 		$cookie_checkcode 		=  $this->input->cookie("checkpic");
@@ -74,6 +75,7 @@ class Resetpassword extends MY_Controller {
 			if (!empty($params['user_email'])) {
 
 				$result = $this->alterPassword($params);
+//				var_dump($result);exit;
 				if ($result && $result['http_status_code'] == 200) {
 					$content = json_decode($result['output']); 
 					$status_code = $content->status_code;
@@ -99,6 +101,7 @@ class Resetpassword extends MY_Controller {
 		if (! empty($params)) {
 			$url = API_BASE_LINK.'register/resetpassword';
 			$result = doCurl($url, $params, 'POST');
+//			var_dump($result);exit;
 			
 			return $result;
 		}else{

@@ -117,18 +117,26 @@ $(document).ready(function(){
 			success:function (data) {
 				var  currentdate = getDateDiff();								
 			 	var totalComments = $(".total_comments_"+spiritualityId).attr('data-comments-total');
-  				var userHeadSrc_info = $(".userHeadSrc_info").val();	
+  				var userHeadSrc_info = $(".userHeadSrc_info").val();
+				//console.log(!userHeadSrc_info);
+				var userHeadSrc_mr = null;
+				if(!userHeadSrc_info){
+					userHeadSrc_mr = "../public/images/mrpho.jpg";
+				}else{
+					userHeadSrc_mr = userHeadSrc+userHeadSrc_info;
+				}
+				//alert(userHeadSrc_mr);
 	  			var total_praises = $('.data-total-praises_'+spiritualityId).attr('data-total-praises');			  			
 				if(data.status == '200')
 				{
 			  		if(totalComments > 0){
 			  			//评论不为0			  			
 				  		$(".total_comments_"+spiritualityId).html(++totalComments);		            
-						$(".total_comments_"+spiritualityId).attr('data-comments-total',totalComments);				  		
-	  					$("ul.box-comments_"+spiritualityId).append(
+						$(".total_comments_"+spiritualityId).attr('data-comments-total',totalComments);
+						$("ul.box-comments_"+spiritualityId).append(
 	  						'<li class="box-comments">'+
 		  						'<div class="box-comment">'+
-		  							'<img src="'+userHeadSrc+userHeadSrc_info+'" class="img-circle img-sm">'+	
+		  							'<img src="'+userHeadSrc_mr+'" class="img-circle img-sm">'+
 			  						'<div class="comment-text">'+
 				  						'<span class="username"> 我 '+
 				  						'<span class="text-muted pull-right timeLabels timeLabels_c_'+spiritualityId+'">'+
@@ -138,7 +146,7 @@ $(document).ready(function(){
 			  						'</div>'+
 		  						'</div>'+
 	  						'</li>');
-	  					$(".timeLabels_c_"+spiritualityId).timeago();
+						$(".timeLabels_c_"+spiritualityId).timeago();
 	  					$(".timeLabels_c_"+spiritualityId).timeago('refresh');							
 	  					$(".box-comments_"+spiritualityId).show();
 	  					$(".coments_innput_"+spiritualityId).val("").focus();

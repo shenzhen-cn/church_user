@@ -56,7 +56,8 @@ class Personal extends MY_Controller {
 		}else {
 
 			$data =  $this->tq_header_info();
-			$userHeadSrc = $this->input->post('userHeadSrc') ; 
+//			var_dump($data);exit;
+			$userHeadSrc = $this->input->post('userHeadSrc') ;
 			if ( !empty($userHeadSrc) &&  $userHeadSrc == $data['userHeadSrc_info'] ) {
 				$params['userHeadSrc'] = $userHeadSrc; 
 			}else {
@@ -82,10 +83,10 @@ class Personal extends MY_Controller {
 			$params['sex'] 			= $this->input->post('sex');
 			$params['group_id'] 	= $this->input->post('group_id');
 			$params['user_id'] 		= $this->session->userdata('user_id');
-			// var_dump($params);exit;
+//			 var_dump($params);exit;
 			$url = API_BASE_LINK.'personal/upload_photo';
 			$result = doCurl($url, $params, 'POST');			
-			// var_dump($result);exit();
+//			 var_dump($result);exit();
 
 			if ($result && $result['http_status_code'] == 200) {
 

@@ -2,7 +2,7 @@
 
 if ( ! function_exists('uploadFiles'))
 {
-	function uploadFiles($fileInfo,$uploadPath="public/upload",$flag = true,$allowExt = array('jpeg','jpg','png','bmp'),$maxSize = 2097152)
+	function uploadfiles($fileInfo,$uploadPath="public/upload",$flag = true,$allowExt = array('jpeg','jpg','png','bmp'),$maxSize = 2097152)
 	{
 			//$_FILES 文件上传变量
 			// print_r($_FILES);

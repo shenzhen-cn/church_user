@@ -1,5 +1,6 @@
 <?php (defined('BASEPATH')) OR exit('No direct script access allowed');
 
+
 class MY_Controller extends CI_Controller
 {	
 	public function __construct()
@@ -24,12 +25,12 @@ class MY_Controller extends CI_Controller
 				
 				//用户基本信息
 				$result = doCurl(API_BASE_LINK.'tq_header_info/find?user_id='.$user_id);				
-				// var_dump($result);exit;
+//				 var_dump($result);exit;
 				if (isset($result) && $result['http_status_code'] == 200)
 				{
 				    $result = json_decode($result['output']);
 				    $content = $result->results;
-
+//					var_dump($content);exit;
 				    $data['user_info']      	= 	$content->user_info;
 				    $data['group_info']     	= 	$content->group_info;
 				    // var_dump($data['group_info']);exit;

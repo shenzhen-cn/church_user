@@ -16,7 +16,7 @@
      </div>
      <div class="register-box-body">
        <p class="login-box-msg">完善个人信息</p>
-        <form action="<?php echo base_url('register/improveInformation'); ?>" method="post" enctype="multipart/form-data">
+        <form action="<?php echo site_url('register/improveInformation'); ?>" method="post" enctype="multipart/form-data">
           <div class="box-body box-profile">
             <img id="userHead_logo_preview"  class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>public/images/mrpho.jpg" style="width:150px;height:150px;" alt="上传头像">
             <h3 class="profile-username text-center"><?php echo $nick; ?></h3>  
@@ -59,7 +59,7 @@
    </div><!-- /.register-box -->
 
    <!-- jQuery 2.1.4 -->
-   <script src="<?php echo base_url(); ?>public/plugins/js/jQuery-2.1.4.min.js"></script>
+   <script src="<?php echo base_url(); ?>public/plugins/js/jquery-2.1.4.min.js"></script>
    <!-- Bootstrap 3.3.5 -->
    <script src="<?php echo base_url(); ?>public/js/bootstrap.min.js"></script>   
    <script src="<?php echo base_url(); ?>public/js/uploadUserHead.js"></script>  

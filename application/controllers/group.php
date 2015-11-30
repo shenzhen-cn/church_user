@@ -21,13 +21,14 @@ class Group extends MY_Controller {
         }else {
 
             $data =  $this->tq_header_info();
-
             $group_id =  $this->input->get('group_id') ? $this->input->get('group_id') : "";
             $data['user_id'] = $this->session->userdata('user_id');
 
-            $result = doCurl(API_BASE_LINK.'group/find_group_by_group_id?group_id='."$group_id");           
+            $result = doCurl(API_BASE_LINK.'group/find_group_by_group_id?group_id='."$group_id");
+//            var_dump($result);exit;
             if ($result && $result['http_status_code'] == 200) {
                 $content  =  json_decode($result['output']);
+//                var_dump($content);exit;
                 $status_code = $content->status_code;
                 if ($status_code == 200) {
                     $data['results'] = $content->results;
@@ -37,7 +38,8 @@ class Group extends MY_Controller {
             }
 
 
-            $user_results = doCurl(API_BASE_LINK.'group/find_all_users_by_group_id?group_id='."$group_id");    
+            $user_results = doCurl(API_BASE_LINK.'group/find_all_users_by_group_id?group_id='."$group_id");
+//            var_dump($user_results);exit;
             if ( $user_results && $user_results['http_status_code'] ==200 ) {
                 $content  =  json_decode($user_results['output']);
                 $status_code = $content->status_code;
@@ -53,7 +55,8 @@ class Group extends MY_Controller {
             }  
 
 
-            $week_s_report = doCurl(API_BASE_LINK.'group/find_week_s_report?group_id='."$group_id");    
+            $week_s_report = doCurl(API_BASE_LINK.'group/find_week_s_report?group_id='."$group_id");
+//            var_dump($week_s_report);exit;
             if ( $week_s_report && $week_s_report['http_status_code'] ==200 ) {
                 $content  =  json_decode($week_s_report['output']);
                 $status_code = $content->status_code;

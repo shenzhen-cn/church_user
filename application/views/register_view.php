@@ -32,7 +32,7 @@
            <p class="login-box-msg">重置密码</p>
 
         <?php  } ?>
-       <form action="<?php echo base_url('register/sbumit_register'); ?>" method="post">
+       <form action="<?php echo site_url('register/sbumit_register'); ?>" method="post">
          <div class="form-group has-feedback">
            <input type="email" class="form-control" name="user_name" placeholder="<?php echo $user_name; ?>" value="<?php echo $user_name; ?>" disabled="disabled">
            <span class="fa fa-envelope-o form-control-feedback"></span>
@@ -87,7 +87,7 @@
    </div><!-- /.register-box -->
 
    <!-- jQuery 2.1.4 -->
-   <script src="<?php echo base_url(); ?>public/plugins/js/jQuery-2.1.4.min.js"></script>
+   <script src="<?php echo base_url(); ?>public/plugins/js/jquery-2.1.4.min.js"></script>
    <!-- Bootstrap 3.3.5 -->
    <script src="<?php echo base_url(); ?>public/js/bootstrap.min.js"></script>
    <script src="<?php echo base_url(); ?>public/js/formValidation.js"></script>

@@ -2,7 +2,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
-class WallOfPrayer extends MY_Controller {
+class Wallofprayer extends MY_Controller {
 
 	 /**
      * Constructor function
@@ -27,18 +27,19 @@ class WallOfPrayer extends MY_Controller {
 				'wallOfPrayer/get_all_prayer'.
 				'?limit='.$data['results'].
 				'&page='.$data['page']
-				);			
+				);
 
 			if ($get_all_prayer && $get_all_prayer['http_status_code'] ==200) {
 				$content = json_decode($get_all_prayer['output']);
 				$status_code	 = $content->status_code;
-				
+
 				if ($status_code == 200) {
 					$data['total']	 = $content->total;
-					$data['get_all_prayer'] = $content->results;	
+					$data['get_all_prayer'] = $content->results;
 				}
 			}
 
+//			var_dump($get_all_prayer);exit;
 			$this->load->view('Wallofprayer/timeline_of_prayer_view',isset($data) ? $data : "");
 		}
 	}
@@ -76,9 +77,9 @@ class WallOfPrayer extends MY_Controller {
 
 			$data =  $this->tq_header_info();				
 			$user_id = $this->session->userdata('user_id');
-			// var_dump($data);exit;
 			//团契紧急祷告
 			$find_urgent_prayer = doCurl(API_BASE_LINK.'home/find_urgent_prayer');
+//			 var_dump($find_urgent_prayer);exit;
 			if ($find_urgent_prayer && $find_urgent_prayer['http_status_code'] ==200) {
 				$content = json_decode($find_urgent_prayer['output']);
 				$status_code	 = $content->status_code;
@@ -88,9 +89,10 @@ class WallOfPrayer extends MY_Controller {
 				}
 			}
 
+//			var_dump($urgent_prayer_id);exit;
 			if (isset($urgent_prayer_id) && !empty($urgent_prayer_id)) {				
 				$get_tq_prayer = doCurl(API_BASE_LINK.'wallOfPrayer/get_tq_content_prayer?tq_prayer_id='.$urgent_prayer_id.'&user_id='.$user_id);
-				// var_dump($get_tq_prayer);exit;
+//				 var_dump($get_tq_prayer);exit;
 				if ($get_tq_prayer && $get_tq_prayer['http_status_code'] ==200) {
 					$content = json_decode($get_tq_prayer['output']);
 					$status_code	 = $content->status_code;
@@ -103,9 +105,10 @@ class WallOfPrayer extends MY_Controller {
 			}
 
 			//小组祷告：
-            $group_id = isset($data['user_info']->group_id) ? $data['user_info']->group_id : "" ;			
+            $group_id = isset($data['user_info']->group_id) ? $data['user_info']->group_id : "" ;
+//			var_dump($group_id);exit;
 			$get_today_group_prayer = doCurl(API_BASE_LINK.'group/get_today_group_prayer?group_id='."$group_id");    
-			// var_dump($get_today_group_prayer);exit;
+//			 var_dump($get_today_group_prayer);exit;
 			if ( $get_today_group_prayer && $get_today_group_prayer['http_status_code'] ==200 ) {
 			    $content  =  json_decode($get_today_group_prayer['output']);
 			    $status_code = $content->status_code;
@@ -118,10 +121,10 @@ class WallOfPrayer extends MY_Controller {
 			} else {
 			    show_404();exit();
 			} 
-
+//			var_dump($group_prayer_id);exit;
 			if (isset($group_prayer_id) && !empty($group_prayer_id)) {				
 				$get_group_prayer = doCurl(API_BASE_LINK.'wallOfPrayer/get_group_prayer?group_prayer_id='.$group_prayer_id.'&user_id='.$user_id);
-				// var_dump($get_group_prayer);exit;
+//				 var_dump($get_group_prayer);exit;
 
 				if ($get_group_prayer && $get_group_prayer['http_status_code'] ==200) {
 					$content = json_decode($get_group_prayer['output']);
@@ -135,7 +138,7 @@ class WallOfPrayer extends MY_Controller {
 				}
 			}
 
-
+//			var_dump($data);exit;
 			$this->load->view('Wallofprayer/Wallofprayer_view',isset($data) ? $data : "");
 		}	
 	}
@@ -175,7 +178,7 @@ class WallOfPrayer extends MY_Controller {
 
 				}				
 
-				redirect('WallOfPrayer/prayer','refresh') ;
+				redirect('Wallofprayer/prayer','refresh') ;
 
 
 			}else{
@@ -210,7 +213,7 @@ class WallOfPrayer extends MY_Controller {
 					$this->session->set_flashdata('error', '阿们！你的祷告删除失败，请重试！');
 				}
 				
-				redirect('WallOfPrayer/prayer','refresh') ;
+				redirect('Wallofprayer/prayer','refresh') ;
 			}else {
 				show_404();exit;
 			}
@@ -254,7 +257,7 @@ class WallOfPrayer extends MY_Controller {
 
 				}				
 
-				redirect('WallOfPrayer/prayer','refresh') ;
+				redirect('Wallofprayer/prayer','refresh') ;
 
 
 			}else{
@@ -289,7 +292,7 @@ class WallOfPrayer extends MY_Controller {
 					$this->session->set_flashdata('error', '阿们！你的祷告删除失败，请重试！');
 				}
 				
-				redirect('WallOfPrayer/prayer','refresh') ;
+				redirect('Wallofprayer/prayer','refresh') ;
 			}else {
 				show_404();exit;
 			}

@@ -5,6 +5,7 @@
 		$user_id 				= isset($user_id) ? $user_id : "" ;
 		$user_group_id          = isset($user_info->group_id) ? $user_info->group_id : "";
 		$group_users 			= isset($group_users) ? $group_users : "" ;
+//		var_dump($group_users);exit;
 		$group_name 			= isset($group_name) ? $group_name : "" ;
 		$week_s_report 			= isset($week_s_report) ? $week_s_report : "" ;
 		$week_firstday 			= isset($week_firstday) ? $week_firstday : "" ;
@@ -28,7 +29,7 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li class="active">小组</li>
 			</ol>
 		</section>
@@ -44,7 +45,7 @@
 							<div class="info-box">
 								<span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
 								<div class="info-box-content">
-									<a href="<?php echo base_url('spirituality'); ?>" >
+									<a href="<?php echo site_url('spirituality'); ?>" >
 										<span class="info-box-text">设置小组当日灵修</span>
 									</a>
 								</div><!-- /.info-box-content -->
@@ -56,7 +57,7 @@
 							<div class="info-box">
 								<span class="info-box-icon bg-red"><i class="fa  fa-pencil"></i></span>
 								<div class="info-box-content">
-									<a href="<?php echo base_url('checkSpiri'); ?>" >
+									<a href="<?php echo site_url('checkSpiri'); ?>" >
 										<span class="info-box-text">审核小组成员灵修和祷告</span>
 									</a>
 								</div><!-- /.info-box-content -->
@@ -67,7 +68,7 @@
 								<div class="info-box">
 									<span class="info-box-icon bg-yellow"><i class="fa fa-file"></i></span>
 									<div class="info-box-content">
-										<a href="<?php echo base_url('setting_group_prayer'); ?>">
+										<a href="<?php echo site_url('setting_group_prayer'); ?>">
 											<span class="info-box-text">小组今日代祷</span>
 										</a>
 									</div><!-- /.info-box-content -->
@@ -80,7 +81,7 @@
 							<div class="info-box">
 								<span class="info-box-icon bg-green"><i class="fa fa-trophy"></i></span>
 								<div class="info-box-content">
-									<a href="<?php echo base_url('ranking'); ?>">
+									<a href="<?php echo site_url('ranking'); ?>">
 										<span class="info-box-text">小组团契排名</span>
 									</a>
 								</div><!-- /.info-box-content -->
@@ -114,7 +115,7 @@
 													$userHead_src    = isset($v->userHead_src) ? $v->userHead_src : "";
 											 ?>
 												<li>
-													<a href="<?php echo base_url('seeMember?user_id='.$group_user_id); ?>">
+													<a href="<?php echo site_url('seeMember?user_id='.$group_user_id); ?>">
 													<?php if (empty($userHead_src)) {?>
 													   <img src="<?php echo base_url(); ?>public/images/mrpho.jpg"   alt="User Image" >
 													<?php } else { ?>

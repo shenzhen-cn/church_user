@@ -1,8 +1,11 @@
-<?php 
-  $user_info            =     isset($user_info)  ?  $user_info : ''; 
+
+<?php
+  $user_info            =     isset($user_info)  ?  $user_info : '';
+//  var_dump($user_info);exit;
   $users_id             =     isset($user_info->user_id) ? $user_info->user_id : "" ; 
   $group_info           =     isset($group_info) ?  $group_info : "";
   $userHeadSrc_info     =     isset($userHeadSrc_info) ?  $userHeadSrc_info : "";
+//  var_dump($userHeadSrc_info);exit;
   $clas_p_p             =     isset($clas_p_p) ?  $clas_p_p : "";
   $reminder_days        =     isset($reminder_days) ? $reminder_days : "";
   
@@ -76,7 +79,7 @@
                       <ul class="menu">
                         <li>
                           <?php if (!empty($reminder_days)) { ?>                        
-                            <a href="<?php echo base_url('calendar'); ?>">
+                            <a href="<?php echo site_url('calendar'); ?>">
                               <i class="fa fa-bullhorn text-yellow"></i>
                               <?php if ($reminder_days-1 == 0) { ?>                              
                                   今天你还没有灵修呢！
@@ -88,21 +91,21 @@
                         </li>
                         <?php if (!empty($count_content_priest_preach_messages)) { ?>                      
                           <li>
-                            <a href="<?php echo base_url('priest_preach?id='.$count_p_p_id); ?>">
+                            <a href="<?php echo site_url('priest_preach?id='.$count_p_p_id); ?>">
                               <i class="fa fa-files-o text-aqua"></i> 牧师讲道 更新<?php echo $count_content_priest_preach_messages; ?>篇文章
                             </a>
                           </li>                                       
                         <?php } ?>
                         <?php if (!empty($count_user_album_src_messages)) { ?>                        
                           <li>
-                            <a href="<?php echo base_url('fellowship_life'); ?>">
+                            <a href="<?php echo site_url('fellowship_life'); ?>">
                               <i class="fa fa-users text-red"></i> 团契生活 更新 <?php echo $count_user_album_src_messages; ?>张照片
                             </a>
                           </li>                      
                         <?php } ?>
                         <?php if (!empty($count_notice_groups_messages)) { ?>
                           <li>
-                            <a href="<?php echo base_url('ranking'); ?>">
+                            <a href="<?php echo site_url('ranking'); ?>">
                               <i class="fa fa-graduation-cap text-aqua"></i> 你收到组长通知 <?php echo $count_notice_groups_messages; ?> 条
                             </a>
                           </li>
@@ -118,7 +121,7 @@
                                     $directory = $value->directory;
                                     $chapter_id = $value->chapter_id; ?>                                
                               <li>
-                                <a href="<?php echo base_url('personal?spirituality_id='."$spirituality_id"); ?>">
+                                <a href="<?php echo site_url('personal?spirituality_id='."$spirituality_id"); ?>">
                                   <div class="pull-left">
                                     <?php if (empty($userHead_src)) {?>
                                        <img src="<?php echo base_url(); ?>public/images/mrpho.jpg" class="fa img-circle">
@@ -146,7 +149,7 @@
                                   $directory = $value->directory;
                                   $chapter_id = $value->chapter_id; ?>
                                 <li>
-                                  <a href="<?php echo base_url('personal?spirituality_id='."$spirituality_id"); ?>">
+                                  <a href="<?php echo site_url('personal?spirituality_id='."$spirituality_id"); ?>">
                                     <div class="pull-left">
                                       <?php if (empty($replier_userHead_src)) {?>
                                          <img src="<?php echo base_url(); ?>public/images/mrpho.jpg" class="img-circle">
@@ -252,19 +255,19 @@
                   <!-- Menu Body -->
                   <li class="user-body">
                     <div class="col-xs-6 text-center">
-                      <a href="<?php echo base_url('home#spiritual_learning'); ?>">灵修</a>
+                      <a href="<?php echo site_url('home#spiritual_learning'); ?>">灵修</a>
                     </div>
                     <div class="col-xs-6 text-center">
-                      <a href="<?php echo base_url('wallofprayer/prayer#urgent_prayer'); ?>">祷告</a>
+                      <a href="<?php echo site_url('wallofprayer/prayer#urgent_prayer'); ?>">祷告</a>
                     </div>
                   </li>
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="<?php echo base_url('personal'); ?>" class="btn btn-default btn-flat">个人</a>
+                      <a href="<?php echo site_url('personal'); ?>" class="btn btn-default btn-flat">个人</a>
                     </div>
                     <div class="pull-right">
-                      <a href="<?php echo base_url('sign_out'); ?>" class="btn btn-default btn-flat">退出</a>
+                      <a href="<?php echo site_url('sign_out'); ?>" class="btn btn-default btn-flat">退出</a>
                     </div>
                   </li>
                 </ul>
@@ -300,7 +303,7 @@
             </div>
           </div>
           <!-- search form -->
-          <form action="<?php echo base_url('onlineBibile'); ?>" method="get" class="sidebar-form">
+          <form action="<?php echo site_url('onlineBibile'); ?>" method="get" class="sidebar-form">
             <div class="input-group">
               <input type="text" name="search_keyword" class="search_keyword form-control" placeholder="在线圣经查找"/>
               <span class="input-group-btn">
@@ -312,13 +315,13 @@
           <!-- sidebar menu: : style can be found in sidebar.less -->
           <ul class="sidebar-menu">
             <li>
-              <a href="<?php echo base_url('bibile'); ?>">
+              <a href="<?php echo site_url('bibile'); ?>">
                 <i class="fa fa-book"></i> <span>在线圣经</span>
               </a>
             </li>
             <li class="header">目录</li>
             <li class="treeview">
-              <a href="<?php echo base_url('home'); ?>">
+              <a href="<?php echo site_url('home'); ?>">
                 <i class="fa fa-dashboard"></i> <span>首页</span> 
               </a>
             </li>
@@ -334,13 +337,13 @@
                   <?php  }?>
                 </a>
                 <ul class="treeview-menu">                                
-                  <li><a href="<?php  echo base_url('priest_preach?id=1'); ?>"><i class="fa fa-circle-o"></i> 牧师课程
+                  <li><a href="<?php  echo site_url('priest_preach?id=1'); ?>"><i class="fa fa-circle-o"></i> 牧师课程
                         <?php if(isset($count_content_priest_preach_messages) && $count_content_priest_preach_messages > 0){ ?>
                           <small class="label pull-right bg-yellow"><?php echo $count_content_priest_preach_messages; ?></small>
                         <?php  } ?>
                       </a>
                   </li>
-                  <li><a href="<?php  echo base_url('read_myEdit'); ?>"><i class="fa fa-circle-o"></i> 在线阅读</a></li>                  
+                  <li><a href="<?php  echo site_url('read_myEdit'); ?>"><i class="fa fa-circle-o"></i> 在线阅读</a></li>
                 </ul>
               </li>
             <?php } ?>
@@ -352,11 +355,11 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <?php if (! empty($group_info)) { 
+                <?php if (!empty($group_info)) {
                         foreach ($group_info as $k => $v) {
                           $group_id   = $v->id;
                           $group_name = $v->group_name; ?>
-                        <li><a href="<?php echo base_url()."group?group_id=".$group_id; ?>"><i class="fa fa-circle-o"></i><?php echo $group_name; ?></a></li>
+                        <li><a href="<?php echo site_url()."/group?group_id=".$group_id; ?>"><i class="fa fa-circle-o"></i><?php echo $group_name; ?></a></li>
 
                   <?php }?>
                 <?php } ?>
@@ -374,7 +377,7 @@
                 <?php  }?>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php  echo base_url('fellowship_life'); ?>"><i class="fa fa-circle-o"></i> 照片墙 
+                <li><a href="<?php  echo site_url('fellowship_life'); ?>"><i class="fa fa-circle-o"></i> 照片墙
                   <?php if (!empty($count_user_album_src_messages)) { ?>                  
                     <span class="label label-primary pull-right">
                     <?php echo $count_user_album_src_messages; ?></span>
@@ -384,23 +387,23 @@
                 <li>
                   <a href="#"><i class="fa fa-circle-o"></i> 相册 <i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
-                    <li><a href="<?php  echo base_url('album'); ?>"><i class="fa fa-circle-o"></i> 家人相册集</a></li>
-                    <li><a href="<?php  echo base_url('fellowship_life/see_user_albums'); ?>"><i class="fa fa-circle-o"></i> 我的相册</a></li>                    
+                    <li><a href="<?php  echo site_url('album'); ?>"><i class="fa fa-circle-o"></i> 家人相册集</a></li>
+                    <li><a href="<?php  echo site_url('fellowship_life/see_user_albums'); ?>"><i class="fa fa-circle-o"></i> 我的相册</a></li>
                   </ul>
                 </li>
-                <li><a href="<?php  echo base_url('upload_photos'); ?>"><i class="fa fa-circle-o"></i> 上传相片</a></li>
-                
+                <li><a href="<?php  echo site_url('upload_photos'); ?>"><i class="fa fa-circle-o"></i> 上传相片</a></li>
+
               </ul>
             </li>
             
             <li>
-              <a href="<?php echo base_url('WallOfPrayer'); ?>">
+              <a href="<?php echo site_url('Wallofprayer'); ?>">
                 <i class="fa fa-fire"></i> <span>祷告墙</span>
               </a>
             </li>            
 
             <li>
-              <a href="<?php echo base_url('calendar'); ?>">
+              <a href="<?php echo site_url('calendar'); ?>">
                 <i class="fa fa-calendar"></i> <span>灵修日历</span>
                 <small class="label pull-right bg-red"></small>
               </a>
@@ -413,20 +416,20 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php echo base_url('setPersonalData'); ?>"><i class="fa fa-circle-o"></i> 修改资料</a></li>
-                <li><a href="<?php echo base_url('resetpassword'); ?>"><i class="fa fa-circle-o"></i> 修改密码</a></li>
+                <li><a href="<?php echo site_url('setPersonalData'); ?>"><i class="fa fa-circle-o"></i> 修改资料</a></li>
+                <li><a href="<?php echo site_url('resetpassword'); ?>"><i class="fa fa-circle-o"></i> 修改密码</a></li>
               </ul>
             </li>
 
             <li class="treeview">
-              <a href="<?php echo base_url('tq_about'); ?>">
+              <a href="<?php echo site_url('tq_about'); ?>">
                 <i class="fa fa-file-word-o"></i>
                 <span>关于使命青年团契</span>
               </a>
             </li>
           
             <li>
-              <a href="<?php echo base_url('sign_out'); ?>">
+              <a href="<?php echo site_url('sign_out'); ?>">
                 <i class="fa fa-toggle-off"></i> <span>退出</span>
               </a>
             </li>

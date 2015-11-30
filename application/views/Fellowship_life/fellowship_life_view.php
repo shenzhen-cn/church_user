@@ -22,7 +22,7 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li class="active">团契生活</li>
 			</ol>
 		</section>
@@ -55,7 +55,7 @@
 		       	 	            	<?php if (empty($user_album_src)) {?>
 		       	 	            	   <img src="<?php echo base_url(); ?>public/images/mrpho.jpg" class="user-image">
 		       	 	            	<?php } else { ?>
-	   	 	            			    <a href="<?php echo base_url().$user_album_src; ?>" title="《<?php echo $user_album_name; ?>》" data-gallery>
+	   	 	            			    <a href="<?php echo site_url().$user_album_src; ?>" title="《<?php echo $user_album_name; ?>》" data-gallery>
 	   	 	            	                <img src="<?php echo base_url().$user_album_src; ?>" alt="..." class="img-responsive">			        
 	   	 	            			    </a>
 
@@ -133,7 +133,7 @@
 		$("a.href_type").css("color","white");
 
 	</script>
-	<script src="public/plugins/js/jquery.grid-a-licious.min.js"></script>
+	<script src="<?php echo  base_url();?>public/plugins/js/jquery.grid-a-licious.min.js"></script>
 	<script>
 			//模拟滚动条滚动时随机添加内容
         	var currentPage = $("#currentPage").val();
@@ -146,7 +146,7 @@
 
             	currentPage = parseInt(currentPage) + 1;
 
-				var url = "<?php echo base_url('fellowship_life/load_images'); ?>";
+				var url = "<?php echo site_url('fellowship_life/load_images'); ?>";
 
 				var boxes = new Array; 		
 				$.ajax({ 

@@ -21,8 +21,8 @@
 					<small>IN GOD WE TRUST</small>
 				</h1>
 				<ol class="breadcrumb">
-					<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
-					<li><a href="<?php echo base_url('fellowship_life/see_user_albums'); ?>">相册</a></li>
+					<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+					<li><a href="<?php echo site_url('fellowship_life/see_user_albums'); ?>">相册</a></li>
 					<li class="active">上传照片</li>
 				</ol>
 			</section>
@@ -64,7 +64,7 @@
 									  </li>
 									</ul>
 									<div class="create_new_album" style="display:none"> 										
-										<form action="<?php echo base_url('fellowship_life/create_album'); ?>" method="post">																				
+										<form action="<?php echo site_url('fellowship_life/create_album'); ?>" method="post">
 											<ul class="list-inline">
 												<li>
 													<div class="form-group">																							
@@ -109,7 +109,7 @@
 		<script src="<?php echo base_url(); ?>public/plugins/js/fileinput_locale_zh.js" type="text/javascript"></script>
 		<script>   
 		$("#file-upload").fileinput({
-	        uploadUrl: "<?php echo base_url('fellowship_life/photos_upload') ?>", // you must set a valid URL here else you will get an error
+	        uploadUrl: "<?php echo site_url('fellowship_life/photos_upload') ?>", // you must set a valid URL here else you will get an error
 		    uploadAsync: false,
 		    showPreview: true,
 			browseClass: "btn btn-info",		    

@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
 
 class Home extends MY_Controller {
 
-
+//	echo 'sdfsdf';exit;
     public function __construct() {
         parent::__construct();
 
@@ -14,34 +14,35 @@ class Home extends MY_Controller {
 
 		if (!$this->session->userdata('access_token')) {
 			
-			redirect('login','refresh');
+			redirect(site_url('login'),'refresh');
 		}else {
 
-			$data =  $this->tq_header_info();	
-			// var_dump($data);exit;
+			$data =  $this->tq_header_info();
 			$group_id = $data['user_info']->group_id ? $data['user_info']->group_id : "";
 			$find_home_inform = doCurl(API_BASE_LINK.'home/find_home_inform');
+//			var_dump($find_home_inform);exit;
 
 			if ($find_home_inform && $find_home_inform['http_status_code'] ==200) {
 				$content = json_decode($find_home_inform['output']);
 				$status_code	 = $content->status_code;
 				if ($status_code == 200) {
-					$data['home_inform'] = $content->results;	
+					$data['home_inform'] = $content->results;
 				}
 			}
 
 			//团契紧急祷告
 			$find_urgent_prayer = doCurl(API_BASE_LINK.'home/find_urgent_prayer');
+//			var_dump($find_urgent_prayer );exit;
 			if ($find_urgent_prayer && $find_urgent_prayer['http_status_code'] ==200) {
 				$content = json_decode($find_urgent_prayer['output']);
 				$status_code	 = $content->status_code;
 				if ($status_code == 200) {
-					$data['urgent_prayer'] = $content->results;	
+					$data['urgent_prayer'] = $content->results;
 				}
 			}
 			//小组祷告
 			$get_today_group_prayer = doCurl(API_BASE_LINK.'group/get_today_group_prayer?group_id='."$group_id");    
-			// var_dump($get_today_group_prayer);exit;
+//			 var_dump($get_today_group_prayer);exit;
 			if ( $get_today_group_prayer && $get_today_group_prayer['http_status_code'] ==200 ) {
 			    $content  =  json_decode($get_today_group_prayer['output']);
 			    $status_code = $content->status_code;
@@ -55,6 +56,7 @@ class Home extends MY_Controller {
 			} 
 			
 			$find_spirituality = doCurl(API_BASE_LINK.'home/find_spirituality?group_id='.$group_id);
+//			var_dump($find_spirituality);exit;
 			if ($find_spirituality && $find_spirituality['http_status_code'] ==200) {
 				$content = json_decode($find_spirituality['output']);
 				$status_code	 = $content->status_code;
@@ -74,7 +76,7 @@ class Home extends MY_Controller {
 			$data['user_id'] = $user_id;
 
 			$find_user_spirituality = doCurl(API_BASE_LINK.'home/find_user_spirituality?group_id='.$group_id.'&user_id='.$user_id.'&chapter_id='.$current_chapter_id.'&book_id='.$current_book_id);			
-			// var_dump($find_user_spirituality);exit;					
+//			 var_dump($find_user_spirituality);exit;
 			if ($find_user_spirituality && $find_user_spirituality['http_status_code'] ==200) {
 				$content = json_decode($find_user_spirituality['output']);
 
@@ -91,6 +93,7 @@ class Home extends MY_Controller {
 			//分享文章
 			$document_id = $this->input->get('document_id') ? $this->input->get('document_id') : '' ;
     		$results = doCurl(API_BASE_LINK.'priest_preach/read_myEdit_by_id?document_id='.$document_id);
+//			var_dump($results);exit;
 			if ($results && $results['http_status_code'] == 200 ) {
 				$content = json_decode($results['output']);
 				$status_code = $content->status_code;
@@ -105,7 +108,7 @@ class Home extends MY_Controller {
 
 			//当日经文
     		$results = doCurl(API_BASE_LINK.'home/find_todayScriptures');
-
+//			var_dump($results);exit;
 			if ($results && $results['http_status_code'] == 200 ) {
 				$content = json_decode($results['output']);
 				// var_dump($content);exit;
@@ -122,6 +125,7 @@ class Home extends MY_Controller {
 
 			//团契生活
     		$results = doCurl(API_BASE_LINK.'home/recently_fellowship_photos');
+//			var_dump($results);exit;
 			if ($results && $results['http_status_code'] == 200 ) {
 				$content = json_decode($results['output']);				
 				$status_code = $content->status_code;
@@ -133,7 +137,7 @@ class Home extends MY_Controller {
 			}else {
 				show_404();exit;
 			}
-
+//		var_dump('dfgdfgd');exit;
 			$this->load->view('home_view', isset($data) ? $data : "");
 		}
 

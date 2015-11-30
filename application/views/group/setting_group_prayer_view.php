@@ -19,7 +19,7 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li>小组</li>
 				<li class="active">小组祷告设置</li>
 			</ol>
@@ -39,7 +39,7 @@
 						</div><!-- /.box-header -->
 						<div class="box-body no-padding">
 							<div class="table-responsive mailbox-messages">
-								<form action="<?php echo base_url('setting_group_prayer'); ?>" method="post">									
+								<form action="<?php echo site_url('setting_group_prayer'); ?>" method="post">
 									<div class="box-body">
 										<div class="form-group">
 											<label for="group_prayer_days">设置天数：</label>

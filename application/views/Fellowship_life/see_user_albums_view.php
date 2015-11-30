@@ -19,9 +19,9 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li>团契生活</li>
-				<li class="active"><a href="<?php echo base_url('album'); ?>">我的相册集</a></li>
+				<li class="active"><a href="<?php echo site_url('album'); ?>">我的相册集</a></li>
 			</ol>
 		</section>
 
@@ -72,7 +72,7 @@
 							<!-- Group photo album -->
 								<div class="col-md-3 col-sm-6 col-xs-12">
 									<div class="info-box <?php echo $folder_color; ?>">
-										<a  class="href_type" href="<?php echo base_url('fellowship_life/see_user_photos?album_id='."$album_id".'&create_by='."$user_id"); ?>" title="">
+										<a  class="href_type" href="<?php echo site_url('fellowship_life/see_user_photos?album_id='."$album_id".'&create_by='."$user_id"); ?>" title="">
 											<span class="info-box-icon"><i class="fa fa-folder"></i></span>
 										</a>
 										<div class="info-box-content">
@@ -133,7 +133,7 @@
 			      var name = prompt("请输入您的相册名字","");
 			        if (name!=null && name!="")
 			        {
-			          	$(".album_name_"+album_id).load("<?php echo base_url('fellowship_life/rename_album_name') ?>",{album_name:name,album_id:album_id},function(responseTxt,statusTxt,xhr){
+			          	$(".album_name_"+album_id).load("<?php echo site_url('fellowship_life/rename_album_name') ?>",{album_name:name,album_id:album_id},function(responseTxt,statusTxt,xhr){
 			          	   if(statusTxt=="success")
 			          	     alert("重命名成功！");
 			          	   if(statusTxt=="error")

@@ -2,6 +2,7 @@
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
+
 class Register extends MY_Controller {
 
 	 /**
@@ -10,7 +11,7 @@ class Register extends MY_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->library('upload');
-        $this->load->helpers('uploadFiles');
+        $this->load->helpers('uploadfiles');
 
     }
 
@@ -19,16 +20,17 @@ class Register extends MY_Controller {
 		$op = $this->input->get('op') ? $this->input->get('op') : "" ;
 		$id = $this->input->get('id') ? $this->input->get('id') : "" ;
 		$token = $this->input->get('token') ? $this->input->get('token') : "";
-		
+
 		if (!empty($op) && !empty($id) &&  !empty($token)) {
 
 			$result = doCurl(API_BASE_LINK.'register/findReUserName?op='.$op."&id=".$id."&token=".$token);
+//			var_dump($result);exit;
 
 			if ($result && $result['http_status_code'] == 200) {
 
 				$content   = json_decode($result['output']);
-
 				$status_code  = $content->status_code;
+
 				$get_op  = $content->op;
 
 				if ($status_code == 200 && $get_op == 'active') {
@@ -51,8 +53,7 @@ class Register extends MY_Controller {
 						$data['get_op'] 		=	$get_op;	  
 
 						$this->load->view('register_view' , isset($data) ? $data : NULL);
-				}
-				else{
+				}else{
 
 					exit('无效链接！');
 				}
@@ -67,24 +68,29 @@ class Register extends MY_Controller {
 	}
 
 	public function improveInformation()
-	{	
-		$fileInfo = $_FILES['uploadphoto'];
-		$uploadPath = "public/uploads/userHeadsrc";
-		$params['userHeadSrc']	= uploadFiles( $fileInfo,$uploadPath)['newName'];		
+	{
+		$temp_uploadphoto = $this->input->post('uploadphoto');
+		$params['userHeadSrc'] = null;
+		if(!empty($temp_uploadphoto)){
+			$fileInfo = $_FILES['uploadphoto'];
+			var_dump(empty($fileInfo));exit;
+			$uploadPath = "public/uploads/userHeadsrc";
+			//		echo $uploadPath;exit;
+			$params['userHeadSrc']	= uploadfiles($fileInfo,$uploadPath)['newName'];
+
+		}
+
 		$params['sex'] 	  		 = $this->input->post('sex');
 		$params['group_id'] 	 = $this->input->post('group_id');
 		$params['user_id'] 		 = $this->session->userdata('user_id');
+//		var_dump($params);exit;
 		$url = API_BASE_LINK.'register/improveInformation';
-
 		$result = doCurl($url, $params, 'POST');
+
 		$is_bool = json_decode($result['output'])->results;
-		if ($is_bool && $result['http_status_code'] == 200) {
+//		var_dump($is_bool);exit;
+		redirect(site_url('login'),'refresh');
 
-			redirect('login','refresh');
-
-		}else{
-			show_404();exit;
-		}				
 
 	}
 

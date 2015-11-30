@@ -2,7 +2,7 @@
 	// $group_info = isset($group_info) ? $group_info : "" ;	
 	// $group_albums_names = isset($group_albums_names) ? $group_albums_names : "" ;
 	$album_results = isset($album_results) ? $album_results : "" ;
-	// var_dump($album_results);exit;
+//	 var_dump($album_results);exit;
 
 ?>
 <!DOCTYPE html>
@@ -22,9 +22,9 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li>团契生活</li>
-				<li class="active"><a href="<?php echo base_url('album'); ?>">家人相册集</a></li>
+				<li class="active"><a href="<?php echo site_url('album'); ?>">家人相册集</a></li>
 
 			</ol>
 		</section>
@@ -36,11 +36,12 @@
 				<?php  if (!empty($album_results)) { 
 					$folder_color=null;
 
-					foreach ($album_results as $k => $v) { 
-						// var_dump($v);exit;
+					foreach ($album_results as $k => $v) {
 						$album_id = $v->album_id;
 						$album_name = $v->album_name;
 						$photos_count = $v->photos_count;
+//						var_dump($photos_count);exit;
+
 						$nick = $v->nick;
 						$create_by = $v->user_id;
 
@@ -77,7 +78,7 @@
 						<?php if (  $photos_count != "0") { ?>
 							
 							<!-- Group photo album -->
-							<a href="<?php echo base_url('fellowship_life/see_user_photos?create_by='."$create_by".'&album_id='."$album_id"); ?>" >
+							<a href="<?php echo site_url('fellowship_life/see_user_photos?create_by='."$create_by".'&album_id='."$album_id"); ?>" >
 								<div class="col-md-3 col-sm-6 col-xs-12">
 									<div class="info-box <?php echo $folder_color; ?>">
 										<span class="info-box-icon"><i class="fa fa-folder"></i></span>
@@ -89,7 +90,21 @@
 									</div><!-- /.info-box -->
 								</div><!-- /.col -->
 							</a>
-						<?php } ?>	     				     	
+						<?php }else{ ?>
+							<!-- Group photo album -->
+							<a href="javascript:;" class="href_type" onclick=" return check_isnull_file()" >
+								<div class="col-md-3 col-sm-6 col-xs-12">
+									<div class="info-box <?php echo $folder_color; ?>">
+										<span class="info-box-icon"><i class="fa fa-folder"></i></span>
+										<div class="info-box-content">
+											<span class="info-box-text"><?php echo $album_name; ?></span>
+											<span class="info-box-number">照片个数：<?php echo $photos_count; ?></span>
+											<span class="progress-description pull-right"><br>相册主人：<?php echo $nick; ?></span>
+										</div><!-- /.info-box-content -->
+									</div><!-- /.info-box -->
+								</div><!-- /.col -->
+							</a>
+						<?php } ?>
 					<?php }
 						?>
 				<?php } ?>	       
@@ -99,6 +114,12 @@
 	</div><!-- /.content-wrapper -->
 
     <?php  $this->load->view('tq_footer'); ?>
+	<script>
+		function check_isnull_file () {
+			alert('该文件夹为空！');
+			return false;
+		}
+	</script>
 
 </body>
 </html>

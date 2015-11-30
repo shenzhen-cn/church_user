@@ -21,9 +21,9 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li class="">团契生活</li>
-				<li class="active"><a href="<?php echo base_url('album'); ?>">家人相册集</a></li>
+				<li class="active"><a href="<?php echo site_url('album'); ?>">家人相册集</a></li>
 			</ol>
 		</section>
 
@@ -72,7 +72,7 @@
 						<?php if ( $group_album_count != '0') { ?>
 							
 							<!-- Group photo album -->
-							<a href="<?php echo base_url('fellowship_life/group_albums?group_id='."$group_id"); ?>">
+							<a href="<?php echo site_url('fellowship_life/group_albums?group_id='."$group_id"); ?>">
 								<div class="col-md-3 col-sm-6 col-xs-12">
 									<div class="info-box <?php echo $folder_color; ?>">
 										<span class="info-box-icon"><i class="fa fa-folder"></i></span>

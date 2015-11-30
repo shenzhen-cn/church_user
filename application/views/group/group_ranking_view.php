@@ -21,7 +21,7 @@ $last_week_results     = isset($last_week_results) ? $last_week_results : "";
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li>小组</li>
 				<li class="active">小组灵修排名</li>
 			</ol>
@@ -64,6 +64,8 @@ $last_week_results     = isset($last_week_results) ? $last_week_results : "";
           <?php  }
           ?>              
           <?php } ?>     
+
+          <?php if(!empty($last_week_results)){ ?>
 
           <div class="row">
             <div class="col-md-12">
@@ -234,7 +236,8 @@ $last_week_results     = isset($last_week_results) ? $last_week_results : "";
               <?php } ?>
 
             </div><!-- /.col -->
-          </div><!-- /.row -->                     
+          </div><!-- /.row -->
+          <?php }?>
         </section><!-- /.content -->
         <div class="clearfix"></div>
       </div><!-- /.content-wrapper -->
@@ -244,7 +247,7 @@ $last_week_results     = isset($last_week_results) ? $last_week_results : "";
         $(function(){
           $(".del_alert").click(function(){
             var alertId = $(this).attr('data-alert-id');
-            var ajaxurl = "<?php echo base_url('alert_messages/remove_alert_by_id'); ?>";
+            var ajaxurl = "<?php echo site_url('alert_messages/remove_alert_by_id'); ?>";
             $.ajax({
               url: ajaxurl,
               type: 'POST',

@@ -39,7 +39,7 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li>小组</li>
 				<li class="active">成员信息</li>
 			</ol>
@@ -58,8 +58,8 @@
 		        </div>
 		        <div class="box-body no-padding">
 		          <ul class="nav nav-pills nav-stacked">		          
-		            <li class="<?php if(!empty($content) && $content=='coments') echo 'active';  ?>"><a href="<?php echo base_url('seeMember?user_id='.$group_user_id.'&content=coments'); ?>"><i class="fa fa-inbox"></i> 灵修 <span class="label label-primary pull-right"><?php if(!empty($spiri_total_count)) echo $spiri_total_count; else echo '0'; ?></span></a></li>
-		            <li class="<?php if(!empty($content) && $content=='replies') echo 'active'; ?>"><a href="<?php echo base_url('seeMember?user_id='.$group_user_id.'&content=replies'); ?>" disabled＝"disabled"><i class="fa fa-envelope-o"></i> 祷告 <span class="label label-success pull-right"><?php echo $prayer_total; ?></span></a></li>
+		            <li class="<?php if(!empty($content) && $content=='coments') echo 'active';  ?>"><a href="<?php echo site_url('seeMember?user_id='.$group_user_id.'&content=coments'); ?>"><i class="fa fa-inbox"></i> 灵修 <span class="label label-primary pull-right"><?php if(!empty($spiri_total_count)) echo $spiri_total_count; else echo '0'; ?></span></a></li>
+		            <li class="<?php if(!empty($content) && $content=='replies') echo 'active'; ?>"><a href="<?php echo site_url('seeMember?user_id='.$group_user_id.'&content=replies'); ?>" disabled＝"disabled"><i class="fa fa-envelope-o"></i> 祷告 <span class="label label-success pull-right"><?php echo $prayer_total; ?></span></a></li>
 		          </ul>
 		        </div><!-- /.box-body -->
 		      </div><!-- /. box -->		      
@@ -411,9 +411,9 @@
 						      <div class="text-center">					        
 						      	<?php if(!empty($countpage) && $countpage >1) { ?>
 						        <div class="btn-group">									
-						          <a href="<?php echo base_url('seeMember?user_id='.$group_user_id.'&content=replies'.'&page='.$uppage); ?>" title="上一页"><button class="btn btn-default btn-sm" ><i class="fa fa-chevron-left"></i></button></a>
+						          <a href="<?php echo site_url('seeMember?user_id='.$group_user_id.'&content=replies'.'&page='.$uppage); ?>" title="上一页"><button class="btn btn-default btn-sm" ><i class="fa fa-chevron-left"></i></button></a>
 						          <?php if($nextpage <= $countpage) {?>
-						          <a href="<?php echo base_url('seeMember?user_id='.$group_user_id.'&content=replies'.'&page='.$nextpage); ?>" title="下一页"><button class="btn btn-default btn-sm"><i class="fa fa-chevron-right"></i></button></a>
+						          <a href="<?php echo site_url('seeMember?user_id='.$group_user_id.'&content=replies'.'&page='.$nextpage); ?>" title="下一页"><button class="btn btn-default btn-sm"><i class="fa fa-chevron-right"></i></button></a>
 						          <?php }?>
 						        </div><!-- /.btn-group -->
 						      	<?php 	}?>

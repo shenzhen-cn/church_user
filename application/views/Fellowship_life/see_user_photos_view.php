@@ -24,8 +24,8 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
-				<li><a href="<?php echo base_url('album'); ?>" >家人相册集</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('album'); ?>" >家人相册集</a></li>
 				<li class="active"><?php echo $album_name; ?></li>
 			</ol>
 		</section>
@@ -58,8 +58,8 @@
 							  	?>	
      	             			<?php if(!empty($paths)){ ?>     	             			
      	   			            <div class="item item_src_<?php echo $src_id;?>">
-     	               			    <a href="<?php echo base_url().$paths; ?>" title="《<?php echo $album_name; ?>》第<?php echo $key+1; ?>张" data-gallery>
-     	               	                <img src="<?php echo base_url().$paths; ?>"  class="img-responsive">			        
+     	               			    <a href="<?php echo site_url().$paths; ?>" title="《<?php echo $album_name; ?>》第<?php echo $key+1; ?>张" data-gallery>
+     	               	                <img src="<?php echo base_url().$paths; ?>"  class="img-responsive">
      	               			    </a>
      	               			    <br>
      	   			            	<p><span class="pull-right">上传于：<?php echo $src_created_at;?></span>
