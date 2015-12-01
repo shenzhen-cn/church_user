@@ -347,12 +347,10 @@ class Group extends MY_Controller {
                             '&page='.$data['page'].
                             '&count='.$data['count']
                           );         
-        // var_dump($result);exit;
 
           if ($result && $result['http_status_code'] == 200) {
               $content          = json_decode($result['output']);
 
-              // var_dump($content);exit;
               $status_code      = $content->status_code;
 
 
@@ -378,7 +376,8 @@ class Group extends MY_Controller {
           }else{
 
             show_404();exit();
-          }                        
+          }    
+          var_dump($data);exit;                    
           $this->load->view('group/group_seeMember_view', isset($data) ? $data : "");   
         }
     }
