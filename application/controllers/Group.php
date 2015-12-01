@@ -25,7 +25,7 @@ class Group extends MY_Controller {
             $data['user_id'] = $this->session->userdata('user_id');
 
             $result = doCurl(API_BASE_LINK.'group/find_group_by_group_id?group_id='."$group_id");
-           var_dump($result);exit;
+           // var_dump($result);exit;
             if ($result && $result['http_status_code'] == 200) {
                 $content  =  json_decode($result['output']);
 //                var_dump($content);exit;
@@ -39,7 +39,7 @@ class Group extends MY_Controller {
 
 
             $user_results = doCurl(API_BASE_LINK.'group/find_all_users_by_group_id?group_id='."$group_id");
-//            var_dump($user_results);exit;
+           var_dump($user_results);exit;
             if ( $user_results && $user_results['http_status_code'] ==200 ) {
                 $content  =  json_decode($user_results['output']);
                 $status_code = $content->status_code;
