@@ -428,6 +428,7 @@ class Fellowship_life extends MY_Controller {
 				if ($status_code == 200) {
 
 					if(!empty($paths_src)){
+						echo json_encode(file_exists($paths_src));exit;
 						if(file_exists($paths_src)){					
 							!unlink($paths_src);
 						}				 
