@@ -159,7 +159,7 @@
 
 			function del_photos (argument) {
 				var src_id = argument;
-				console.log(src_id)
+				// console.log(src_id)
 				var r = confirm("你确定删除此文件么");
 
 				if(r == true && src_id != null){
@@ -174,7 +174,7 @@
 						data:{src_id:src_id,paths_src:paths_src},
 					})
 					.done(function(data) {
-						console.log(data);
+						// console.log(data);
 						if(data.status == 200){
 
 							$(".item_src_"+src_id).remove();
