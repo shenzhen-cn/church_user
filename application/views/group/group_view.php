@@ -1,4 +1,5 @@
 <?php 	
+	var_dump("fsdfsdfs");exit;
 		$results_id = $results->id;
 		$group_id 				= isset($results_id) ? $results_id : "";		
 		$results_group_name     = $results->group_name;
