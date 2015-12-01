@@ -35,9 +35,10 @@ class Login extends MY_Controller {
 						$result = doCurl(API_BASE_LINK.'login/login_email/find?user_name_email='.$user_name_email.'&password='.$password);
 					}
 
-					 // var_dump($result);exit;
+					 var_dump($result);exit;
 				    if (isset($result) && $result['http_status_code'] == 400)
 					{
+						// var_dump($result);exit;
 					    $result = json_decode($result['output']);
 					    $status_code = $result->status_code;
 					    $message     = $result->message;
@@ -56,7 +57,7 @@ class Login extends MY_Controller {
 					   
 
 					}else if (isset($result) && $result['http_status_code'] == 200) {
-
+						// var_dump($result);exit;
 						$result = json_decode($result['output']);
 
 					    $status_code = $result->status_code;
