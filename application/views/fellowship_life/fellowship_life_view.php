@@ -46,7 +46,7 @@
 	       	 	          				$user_album_src_id =$value->user_album_src_id;
 	       	 	          				$user_album_src = $value->user_album_src;
 	       	 	          				$temp = site_url().$user_album_src;
-	       	 	          				var_dump($temp);exit;
+	       	 	          				// var_dump($temp);exit;
 	       	 	          				$user_album_id  =$value->user_album_id;
 	       	 	          				$album_src_created_at = $value->album_src_created_at;
 	       	 	          				$user_album_name = $value->user_album_name;
@@ -57,7 +57,7 @@
 		       	 	            	<?php if (empty($user_album_src)) {?>
 		       	 	            	   <img src="<?php echo base_url(); ?>public/images/no_img.jpg" class="user-image">
 		       	 	            	<?php } else { ?>
-	   	 	            			    <a href="<?php echo site_url().$user_album_src; ?>" title="《<?php echo $user_album_name; ?>》" data-gallery>
+	   	 	            			    <a href="<?php echo base_url().$user_album_src; ?>" title="《<?php echo $user_album_name; ?>》" data-gallery>
 	   	 	            	                <img src="<?php echo base_url().$user_album_src; ?>"  class="img-responsive">			        
 	   	 	            			    </a>
 
