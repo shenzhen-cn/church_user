@@ -91,7 +91,7 @@ class Home extends MY_Controller {
 			}				
 			
 			//分享文章
-			$document_id = $this->input->get('document_id') ? $this->input->get('document_id') : '' ;
+			$document_id = $this->input->get('document_id');
     		$results = doCurl(API_BASE_LINK.'priest_preach/read_myEdit_by_id?document_id='.$document_id);
 //			var_dump($results);exit;
 			if ($results && $results['http_status_code'] == 200 ) {
@@ -146,13 +146,13 @@ class Home extends MY_Controller {
 
 	public function send_spirituality()
 	{
-		$params['gold_sentence'] = $this->input->post('gold_sentence') ? $this->input->post('gold_sentence') : "" ;
+		$params['gold_sentence'] = $this->input->post('gold_sentence');
 		// var_dump($params);exit;
-		$params['heart_feeling'] = $this->input->post('heart_feeling') ? $this->input->post('heart_feeling') : "" ;
-		$params['response'] = $this->input->post('response') ? $this->input->post('response') : "" ;
-		$params['current_chapter_id'] = $this->input->post('current_chapter_id') ? $this->input->post('current_chapter_id') : "" ;
-		$params['current_book_id'] = $this->input->post('current_book_id') ? $this->input->post('current_book_id') : "" ;
-		$params['user_id'] = $this->session->userdata('user_id') ? $this->session->userdata('user_id') : "" ; 
+		$params['heart_feeling'] = $this->input->post('heart_feeling');
+		$params['response'] = $this->input->post('response');
+		$params['current_chapter_id'] = $this->input->post('current_chapter_id');
+		$params['current_book_id'] = $this->input->post('current_book_id');
+		$params['user_id'] = $this->session->userdata('user_id'); 
 		$url = API_BASE_LINK.'home/send_spirituality';
 		$result = doCurl($url, $params, 'POST');
 		// var_dump($result);exit;

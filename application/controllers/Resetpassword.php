@@ -24,8 +24,8 @@ class Resetpassword extends MY_Controller {
 			$params['currentPwd'] = $this->input->post('currentPwd');
 			$params['confirmNewPwd'] = $this->input->post('confirmNewPwd');
 			$params['user_id'] = $this->session->userdata('user_id');
-
-			if (empty($this->input->post())) {
+			$tmp_post = $this->input->post();
+			if (empty($tmp_post)) {
 				
 				$this->load->view('resetPassword_view',isset($data) ? $data : "");
 			}else{
@@ -57,13 +57,14 @@ class Resetpassword extends MY_Controller {
 	public function forgetpassword() {
 
 		$params['user_email']  	=  $this->input->post('user_email');
-//		var_dump($params);exit;
-		$checkcode1		  		=  strtolower(trim($this->input->post('checkcode_f')));
+		$checkcode_f = $this->input->post('checkcode_f');
+		$checkcode1		  		=  strtolower(trim($checkcode_f));
 		$checkcode        		=  md5($checkcode1);
 		$cookie_checkcode 		=  $this->input->cookie("checkpic");
 
 		if (!empty($checkcode1) && ($checkcode != $cookie_checkcode)) {
-			if(!empty($this->input->post('checkcode_f'))){
+			$temp_checkcode_f = $this->input->post('checkcode_f');
+			if(!empty($temp_checkcode_f)){
 
 				$data['error'] = '验证码输入错误！';
 			}
@@ -115,8 +116,8 @@ class Resetpassword extends MY_Controller {
 		if (!$this->session->userdata('access_token')) {
 			redirect('login','refresh');
 		}else {
-			$params['currentPwd']  = $this->input->post('currentPwd') ? $this->input->post('currentPwd') : "";
-			$params['user_id']     = $this->session->userdata('user_id') ? $this->session->userdata('user_id') : "" ;
+			$params['currentPwd']  = $this->input->post('currentPwd');
+			$params['user_id']     = $this->session->userdata('user_id');
 			$url = API_BASE_LINK.'resetpassword/checkCurrentPwd';
 			$result = doCurl($url, $params, 'POST');
 			if ($result && $result['http_status_code'] == 200) {

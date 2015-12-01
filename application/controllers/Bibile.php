@@ -79,10 +79,13 @@
 		else {
 
 			$data =  $this->tq_header_info();
-			
-			$data['results'] = $this->input->get('results') ? $this->input->get('results') : 10;
-			$data['page'] = $this->input->get('page') ? $this->input->get('page') : 1;	
-			$search_keyword = trim($this->input->get('search_keyword'));
+			$temp_results = $this->input->get('results');
+			$page = $this->input->get('page');
+			$data['results'] = $temp_results ? $temp_results : 10;
+
+			$data['page'] =  $page ? $page : 1;	
+			$search_keyword = $this->input->get('search_keyword');
+			$search_keyword = trim($search_keyword);
 			// echo strlen($search_keyword);exit;
 
 			

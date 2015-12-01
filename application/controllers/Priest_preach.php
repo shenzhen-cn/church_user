@@ -20,9 +20,11 @@ class Priest_preach extends MY_Controller {
 	 	}else {
 
 	 		$data =  $this->tq_header_info();	
-	 		$id  =  $this->input->get('id') ? $this->input->get('id') : "";
-	 		$data['results'] = $this->input->get('results') ? $this->input->get('results') : 10;
-	 		$data['page'] = $this->input->get('page') ? $this->input->get('page') : 1;		
+	 		$id  =  $this->input->get('id');
+	 		$temp_results = $this->input->get('results');
+	 		$page =  $this->input->get('page');
+	 		$data['results'] =  $temp_results ? $temp_results : 10;
+	 		$data['page'] = $page ? $page : 1;		
 
 	 		if (!empty($id)) {
 
@@ -69,7 +71,7 @@ class Priest_preach extends MY_Controller {
     	}else {
 
 	 		$data =  $this->tq_header_info();	
-    		$document_id = $this->input->get('document_id') ? $this->input->get('document_id') : '' ;
+    		$document_id = $this->input->get('document_id');
     		// var_dump($document_id);exit;	
     		$results = doCurl(API_BASE_LINK.'priest_preach/read_myEdit_by_id?document_id='.$document_id);
     		// var_dump($results);exit;	

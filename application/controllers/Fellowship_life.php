@@ -22,7 +22,8 @@ class Fellowship_life extends MY_Controller {
 		    $count_user_album_src_messages = isset($data['count_user_album_src_messages']) ? $data['count_user_album_src_messages'] : "";
 
 		    $data['results'] = 20;
-		    $data['page'] = $this->input->get('page') ? $this->input->get('page') : 1;
+		    $page = $this->input->get('page');
+		    $data['page'] = $page ? $page : 1;
 
 		    if (!empty($count_user_album_src_messages)) {
 		    	$user_id = $this->session->userdata('user_id');
@@ -30,7 +31,7 @@ class Fellowship_life extends MY_Controller {
 		    	$this->remove_alert_by_user_id($user_id,$table_name);
 		    }
 
-		    $prev_day = $this->input->get('date') ? $this->input->get('date') : "";
+		    $prev_day = $this->input->get('date');
 
 		    $result = doCurl(
 		    		API_BASE_LINK.
@@ -63,7 +64,8 @@ class Fellowship_life extends MY_Controller {
 	public function load_images()
 	{
 		$data['results'] = 10;
-	    $data['page'] = $this->input->post('page') ? $this->input->post('page') : 1;
+		$page = $this->input->post('page');
+	    $data['page'] = $page ? $page : 1;
 
 	    if(!empty($data['page'])){	    
 	    	$user_id = $this->session->userdata('user_id');
@@ -128,7 +130,7 @@ class Fellowship_life extends MY_Controller {
 		}else { 
 		    $data =  $this->tq_header_info();
 
-		    $group_id  = $this->input->get('group_id') ? $this->input->get('group_id') : "" ;
+		    $group_id  = $this->input->get('group_id');
 		    $data['group_id']  = $group_id; 
 		    $result = doCurl(API_BASE_LINK.'fellowship_life/group_albums?group_id='.$group_id);
 //			var_dump($result);exit;
@@ -185,8 +187,8 @@ class Fellowship_life extends MY_Controller {
 		    $data =  $this->tq_header_info();
 		    
 		    $params['user_id']     = $this->session->userdata('user_id');
-		    $params['group_id']    = $this->input->post('group_id') ? $this->input->post('group_id') : "" ;
-		    $params['album_name']  = $this->input->post('album') ? $this->input->post('album') : "" ;
+		    $params['group_id']    = $this->input->post('group_id');
+		    $params['album_name']  = $this->input->post('album');
 
 		    // var_dump($params);exit;
 			$url = API_BASE_LINK.'fellowship_life/create_album';
@@ -337,7 +339,7 @@ class Fellowship_life extends MY_Controller {
 			// $user_id  =  $this->input->get('create_by') ? $this->input->get('create_by') : "";
 			$user_id  =  $this->session->userdata('user_id');
 
-			$data['group_id'] =  $this->input->get('group_id') ? $this->input->get('group_id') : "";
+			$data['group_id'] =  $this->input->get('group_id');
 
 			$result = doCurl(API_BASE_LINK.'fellowship_life/see_user_albums?user_id='.$user_id);
 			// echo API_BASE_LINK.'fellowship_life/see_user_albums?user_id='.$user_id;exit;
@@ -369,10 +371,11 @@ class Fellowship_life extends MY_Controller {
 		}else { 
 
 		    $data      =  $this->tq_header_info();			
-			$album_id  =  $this->input->get('album_id') ? $this->input->get('album_id') : "";
-			$user_id   =  $this->input->get('create_by') ? $this->input->get('create_by') : "";
+			$album_id  =  $this->input->get('album_id');
+			$user_id   =  $this->input->get('create_by');
 			$data['results'] = 10;
-			$data['page'] = $this->input->get('page') ? $this->input->get('page') : 1;
+			$page = $this->input->get('page');
+			$data['page'] = $page ? $page : 1;
 
 			$result = doCurl(API_BASE_LINK.
 				'fellowship_life/see_user_photos?album_id='.$album_id.
@@ -411,9 +414,9 @@ class Fellowship_life extends MY_Controller {
 			    redirect('login','refresh');		    
 		}else { 
 
-		    $src_id  = $this->input->post('src_id') ? $this->input->post('src_id') : "" ;		    
+		    $src_id  = $this->input->post('src_id');		    
 		    $user_id = $this->session->userdata('user_id');
-		    $paths_src  = $this->input->post('paths_src') ? $this->input->post('paths_src') : "" ;		    
+		    $paths_src  = $this->input->post('paths_src');		    
 
 			$result = doCurl(API_BASE_LINK.'fellowship_life/del_photos?src_id='.$src_id.'&user_id='.$user_id);
 			$obj = array();

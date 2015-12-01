@@ -11,7 +11,7 @@ class Tq_about extends MY_Controller {
 	public function index() {
 		if (! $this->session->userdata('access_token')) {
 
-			redirect('login','refresh');
+			redirect(site_url('login'),'refresh');
 
 		} else {						
 

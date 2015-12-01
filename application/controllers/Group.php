@@ -21,7 +21,7 @@ class Group extends MY_Controller {
         }else {
 
             $data =  $this->tq_header_info();
-            $group_id =  $this->input->get('group_id') ? $this->input->get('group_id') : "";
+            $group_id =  $this->input->get('group_id');
             $data['user_id'] = $this->session->userdata('user_id');
 
             $result = doCurl(API_BASE_LINK.'group/find_group_by_group_id?group_id='."$group_id");
@@ -122,7 +122,8 @@ class Group extends MY_Controller {
         }else {
 
             $data  =  $this->tq_header_info();
-            $group_id = isset($data['user_info']->group_id) ? $data['user_info']->group_id : "" ;
+            $group_id = $data['user_info']->group_id;
+            $group_id = isset($group_id) ? $group_id : "" ;
             $get_today_group_prayer = doCurl(API_BASE_LINK.'group/get_today_group_prayer?group_id='."$group_id");    
             if ( $get_today_group_prayer && $get_today_group_prayer['http_status_code'] ==200 ) {
                 $content  =  json_decode($get_today_group_prayer['output']);
@@ -138,7 +139,7 @@ class Group extends MY_Controller {
 
             $temp_post = $this->input->post();
             if (! empty($temp_post) && ! empty($group_id) ) {
-                $params['group_prayer_content'] = $this->input->post('group_prayer_content') ? $this->input->post('group_prayer_content') : ""; 
+                $params['group_prayer_content'] = $this->input->post('group_prayer_content'); 
                 $params['group_id']             = $group_id;
 
                 $url = API_BASE_LINK.'group/setting_group_prayer';
@@ -331,9 +332,12 @@ class Group extends MY_Controller {
           $data          =  $this->tq_header_info();
           $group_user_id = $this->input->get('user_id');
           $user_id       = $this->session->userdata('user_id');
-          $data['results'] = $this->input->get('results') ? $this->input->get('results') : 10;
-          $data['page'] = $this->input->get('page') ? $this->input->get('page') : 1;
-          $data['count'] = $this->input->get('count') ? $this->input->get('count') : 5;
+          $temp_results = $this->input->get('results');
+          $page = $this->input->get('page');
+          $temp_count = $this->input->get('count');
+          $data['results'] = $temp_results ? $temp_results : 10;
+          $data['page'] =  $page ? $page : 1;
+          $data['count'] = $temp_count ? $temp_count : 5;
 
           $result        = doCurl(API_BASE_LINK.
                             'group/see_member?group_user_id='.$group_user_id.
@@ -380,11 +384,11 @@ class Group extends MY_Controller {
 
     public function setting_spirituality()
     {
-        $params['testament'] = $this->input->get('testament') ? $this->input->get('testament'): "" ;
-        $params['book_id'] = $this->input->get('book_id') ? $this->input->get('book_id') : "";
-        $params['chapter_id'] = $this->input->get('chapter_id') ? $this->input->get('chapter_id') : "";
+        $params['testament'] = $this->input->get('testament');
+        $params['book_id'] = $this->input->get('book_id');
+        $params['chapter_id'] = $this->input->get('chapter_id');
         $params['user_id'] = $this->session->userdata('user_id');
-        $params['group_id'] = $this->input->get('group_id') ? $this->input->get('group_id') : "";
+        $params['group_id'] = $this->input->get('group_id');
 
         if ($this->session->userdata('user_id')) {
             $url = API_BASE_LINK.'group/setting_spirituality';

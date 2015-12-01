@@ -21,7 +21,8 @@ class Wallofprayer extends MY_Controller {
 
 			$data =  $this->tq_header_info();	
 			$data['results'] = 10;
-			$data['page'] = $this->input->get('page') ? $this->input->get('page') : 1;
+			$page = $this->input->get('page');
+			$data['page'] =   $page ? $page : 1;
 			
 			$get_all_prayer = doCurl(API_BASE_LINK.
 				'wallOfPrayer/get_all_prayer'.
@@ -47,7 +48,8 @@ class Wallofprayer extends MY_Controller {
 	public function get_json_wallofprayer()
 	{
 		$data['results'] = 10;
-		$data['page'] = $this->input->post('page') ? $this->input->post('page') : 1;
+		$page = $this->input->post('page');
+		$data['page'] = $page ? $page : 1;
 		
 		$get_all_prayer = doCurl(API_BASE_LINK.
 			'wallOfPrayer/get_all_prayer'.
@@ -151,9 +153,9 @@ class Wallofprayer extends MY_Controller {
 		}else {
 
 			$data =  $this->tq_header_info();	
-			$params['user_id'] = $this->session->userdata('user_id') ? $this->session->userdata('user_id') : "" ; 
-			$params['content_prayer'] = $this->input->post('content_prayer') ? $this->input->post('content_prayer') : "" ;
-			$params['urgent_prayer_id']   = $this->input->post('urgent_prayer_id') ? $this->input->post('urgent_prayer_id') : "" ;
+			$params['user_id'] = $this->session->userdata('user_id') ; 
+			$params['content_prayer'] = $this->input->post('content_prayer');
+			$params['urgent_prayer_id']   = $this->input->post('urgent_prayer_id');
 
 			$url = API_BASE_LINK.'wallOfPrayer/send_prayer';
 			$result = doCurl($url, $params, 'POST');
@@ -197,8 +199,8 @@ class Wallofprayer extends MY_Controller {
 		}else {
 
 			$data =  $this->tq_header_info();				
-			$urgent_id = $this->input->get('urgent_id') ? $this->input->get('urgent_id') : "" ;
-			$del_by = $this->input->get('del_by') ? $this->input->get('del_by') : "" ;
+			$urgent_id = $this->input->get('urgent_id');
+			$del_by = $this->input->get('del_by');
 			$user_id = $this->session->userdata('user_id');
 			// var_dump($del_by);exit;
 			$del_payer = doCurl(API_BASE_LINK.'wallOfPrayer/del_payer?urgent_id='.$urgent_id.'&user_id='.$user_id.'&del_by='.$del_by);
@@ -229,9 +231,9 @@ class Wallofprayer extends MY_Controller {
 		}else {
 
 			$data =  $this->tq_header_info();	
-			$params['user_id'] = $this->session->userdata('user_id') ? $this->session->userdata('user_id') : "" ; 
-			$params['group_prayer_contents'] = $this->input->post('group_prayer_contents') ? $this->input->post('group_prayer_contents') : "" ;
-			$params['group_prayer_id']   = $this->input->post('group_prayer_id') ? $this->input->post('group_prayer_id') : "" ;
+			$params['user_id'] = $this->session->userdata('user_id') ; 
+			$params['group_prayer_contents'] = $this->input->post('group_prayer_contents');
+			$params['group_prayer_id']   = $this->input->post('group_prayer_id') ;
 
 			$url = API_BASE_LINK.'wallOfPrayer/send_group_prayer';
 			$result = doCurl($url, $params, 'POST');
@@ -276,8 +278,8 @@ class Wallofprayer extends MY_Controller {
 		}else {
 
 			$data =  $this->tq_header_info();				
-			$prayer_for_group_id = $this->input->get('prayer_for_group_id') ? $this->input->get('prayer_for_group_id') : "" ;
-			$del_by = $this->input->get('del_by') ? $this->input->get('del_by') : "" ;
+			$prayer_for_group_id = $this->input->get('prayer_for_group_id');
+			$del_by = $this->input->get('del_by');
 
 			$user_id = $this->session->userdata('user_id');
 			$del_payer = doCurl(API_BASE_LINK.'wallOfPrayer/del_group_payer?prayer_for_group_id='.$prayer_for_group_id.'&user_id='.$user_id.'&del_by='.$del_by);
