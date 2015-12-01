@@ -9,8 +9,7 @@
     First name: <input type="text" name="fname" required="required" /><br />
     Last name: <input type="text" name="lname"  required="required"/><br />
     E-mail: <input type="text" name="email" required /><br />
-     Name: <input type="text" name="usr_name" required />
-  <input type="submit" />
+     Name: <input type="text" name="usr_name" required /><br />
     <input type="submit" />
     </form>
 
