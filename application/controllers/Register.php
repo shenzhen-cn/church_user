@@ -18,12 +18,12 @@ class Register extends MY_Controller {
 		$op = $this->input->get('op');
 		$id = $this->input->get('id');
 		$token = $this->input->get('token');
-		var_dump($token);exit;
+		// var_dump($token);exit;
 
 		if (!empty($op) && !empty($id) &&  !empty($token)) {
 
 			$result = doCurl(API_BASE_LINK.'register/findReUserName?op='.$op."&id=".$id."&token=".$token);
-
+			// var_dump($result);exit;
 			if ($result && $result['http_status_code'] == 200) {
 
 				$content   = json_decode($result['output']);
