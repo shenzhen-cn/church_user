@@ -12,7 +12,7 @@ function random($len) {
 }
  
 //随机生成的字符串
-$str = random(); 
+$str = random(4); 
  
 //验证码图片的宽度
 $width  = 80;      
