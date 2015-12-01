@@ -1,16 +1,11 @@
 <?php 	
-	var_dump("fsdfsdfs");exit;
-		$results_id = $results->id;
-		$group_id 				= isset($results_id) ? $results_id : "";		
-		$results_group_name     = $results->group_name;
-		$group_name 			= isset($results_group_name) ? $results_group_name : "";
-		$results_group_leader_id = $results->group_leader_id; 
-		$group_leader_id 		= isset($results_group_leader_id) ? $results_group_leader_id : "";		
+		$group_id 				= isset($results->id) ? $results->id : "";		
+		$group_name 			= isset($results->group_name) ? $results->group_name : "";
+		$group_leader_id 		= isset($results->group_leader_id) ? $results->group_leader_id : "";		
 		$user_id 				= isset($user_id) ? $user_id : "" ;
-		$$user_info_group_id = $user_info->group_id;
-		$user_group_id          = isset($$user_info_group_id) ? $$user_info_group_id : "";
+		$user_group_id          = isset($user_info->group_id) ? $user_info->group_id : "";
 		$group_users 			= isset($group_users) ? $group_users : "" ;
-
+//		var_dump($group_users);exit;
 		$group_name 			= isset($group_name) ? $group_name : "" ;
 		$week_s_report 			= isset($week_s_report) ? $week_s_report : "" ;
 		$week_firstday 			= isset($week_firstday) ? $week_firstday : "" ;
