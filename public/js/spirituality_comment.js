@@ -102,7 +102,7 @@ $(document).ready(function(){
 	$(".send_comments").click(function () {
 		var spiritualityId  = $(this).attr('data-spirituality-id');	
 		var URL = "group/send_comments";
-		alert(userHeadSrc);
+		// alert(userHeadSrc);
 		var comments_contents = $(".coments_innput_"+spiritualityId).val();
 		if(comments_contents == ''){
 			alert('内容，不能为空！');

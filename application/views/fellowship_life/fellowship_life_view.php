@@ -55,7 +55,7 @@
 		       	 	            	<?php if (empty($user_album_src)) {?>
 		       	 	            	   <img src="<?php echo base_url(); ?>public/images/mrpho.jpg" class="user-image">
 		       	 	            	<?php } else { ?>
-	   	 	            			    <a href="<?php echo base_url().$user_album_src; ?>" title="《<?php echo $user_album_name; ?>》" data-gallery>
+	   	 	            			    <a href="<?php echo site_url().$user_album_src; ?>" title="《<?php echo $user_album_name; ?>》" data-gallery>
 	   	 	            	                <img src="<?php echo base_url().$user_album_src; ?>"  class="img-responsive">			        
 	   	 	            			    </a>
 
