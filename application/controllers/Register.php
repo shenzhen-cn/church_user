@@ -23,7 +23,6 @@ class Register extends MY_Controller {
 		if (!empty($op) && !empty($id) &&  !empty($token)) {
 
 			$result = doCurl(API_BASE_LINK.'register/findReUserName?op='.$op."&id=".$id."&token=".$token);
-			// var_dump($result);exit;
 			if ($result && $result['http_status_code'] == 200) {
 
 				$content   = json_decode($result['output']);
@@ -70,10 +69,9 @@ class Register extends MY_Controller {
 		$temp_uploadphoto = $this->input->post('uploadphoto');
 		$params['userHeadSrc'] = null;
 		if(!empty($temp_uploadphoto)){
-			$fileInfo = $_FILES['uploadphoto'];
-			// var_dump(empty($fileInfo));exit;
-			$uploadPath = "public/uploads/userHeadsrc";
-			//		echo $uploadPath;exit;
+			$fileInfo = $_FILES['uploadphoto'];			
+			$uploadPath = "/var/www/html/church/church_user/public/uploads/userHeadsrc";
+
 			$params['userHeadSrc']	= uploadfiles($fileInfo,$uploadPath)['newName'];
 
 		}
@@ -81,10 +79,8 @@ class Register extends MY_Controller {
 		$params['sex'] 	  		 = $this->input->post('sex');
 		$params['group_id'] 	 = $this->input->post('group_id');
 		$params['user_id'] 		 = $this->session->userdata('user_id');
-//		var_dump($params);exit;
 		$url = API_BASE_LINK.'register/improveInformation';
 		$result = doCurl($url, $params, 'POST');
-
 		$is_bool = json_decode($result['output'])->results;
 		redirect(site_url('login'),'refresh');
 

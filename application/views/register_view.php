@@ -2,7 +2,6 @@
   $user_name = isset($user_name) ? $user_name : ''; 
   $created_by_admin_id = isset($created_by_admin_id) ? $created_by_admin_id : "";
   $get_op = isset($get_op) ? $get_op : "" ;
-  // var_dump($get_op);exit();
 ?>
 
 
