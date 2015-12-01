@@ -56,8 +56,8 @@ class Group extends MY_Controller {
 
 
             $week_s_report = doCurl(API_BASE_LINK.'group/find_week_s_report?group_id='."$group_id");
-            echo 'week_s_report';
-           var_dump($week_s_report);exit;
+            // echo 'week_s_report';
+           // var_dump($week_s_report);exit;
             if ( $week_s_report && $week_s_report['http_status_code'] ==200 ) {
                 $content  =  json_decode($week_s_report['output']);
                 $status_code = $content->status_code;
@@ -72,7 +72,7 @@ class Group extends MY_Controller {
             } else {
                 show_404();exit();
             }  
-            
+          var_dump($data);exit();
           $this->load->view('group/group_view' , isset($data) ? $data : "");
             
         }
