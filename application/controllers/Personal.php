@@ -56,13 +56,12 @@ class Personal extends MY_Controller {
 		}else {
 
 			$data =  $this->tq_header_info();
-//			var_dump($data);exit;
 			$userHeadSrc = $this->input->post('userHeadSrc') ;
 			if ( !empty($userHeadSrc) &&  $userHeadSrc == $data['userHeadSrc_info'] ) {
 				$params['userHeadSrc'] = $userHeadSrc; 
 			}else {
 				$fileInfo = $_FILES['uploadphoto'];
-				$uploadPath = "public/uploads/userHeadsrc";
+				$uploadPath = "/var/www/html/church/church_user/public/uploads/userHeadsrc";
 				$msg_return = uploadFiles( $fileInfo,$uploadPath);
 
 				if (isset($msg_return['msg']) ) {
