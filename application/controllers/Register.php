@@ -1,6 +1,5 @@
 <?php
-if (!defined('BASEPATH'))
-    exit('No direct script access allowed');
+if (!defined('BASEPATH'))  exit('No direct script access allowed');
 
 
 class Register extends MY_Controller {
@@ -95,14 +94,17 @@ class Register extends MY_Controller {
 
 	public function sbumit_register()
 	{
-		if (!empty($this->input->post())) {
+		$temp_post = $this->input->post();
+		if (!empty($temp_post)) {
 
-			$params['re_user_id']           = $this->input->post('re_user_id') ? $this->input->post('re_user_id') : ""; 
-			$params['created_by_admin_id'] 	= $this->input->post('created_by_admin_id') ? $this->input->post('created_by_admin_id') : ""; 
-			$params['user_name']  			= $this->input->post('user_name') ? $this->input->post('user_name') : "";
-			$params['password'] 	        = md5(md5($this->input->post('pwd2') ? $this->input->post('pwd2') : "")); 
-			$params['nick'] 	  	        = $this->input->post('nick') ? $this->input->post('nick') : ""; 
-			$get_op 	  	                = $this->input->post('get_op') ? $this->input->post('get_op') : ""; 
+			$params['re_user_id']           = $this->input->post('re_user_id'); 
+			$params['created_by_admin_id'] 	= $this->input->post('created_by_admin_id'); 
+			$params['user_name']  			= $this->input->post('user_name');
+			$temp_pwd2 = $this->input->post('pwd2');
+			$temp_pwd2 = $temp_pwd2 ? $temp_pwd2 : "";
+			$params['password'] 	        = md5(md5($temp_pwd2)); 
+			$params['nick'] 	  	        = $this->input->post('nick'); 
+			$get_op 	  	                = $this->input->post('get_op'); 
 
 			if (!empty($get_op)) {
 
