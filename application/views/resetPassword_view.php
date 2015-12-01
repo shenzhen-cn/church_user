@@ -33,16 +33,16 @@
             <p class="login-box-msg">请注意密码修改后，将重新登录</p>
             <form id="checkform" action="<?php echo site_url('resetpassword'); ?>" method="post">
               <div class="form-group has-feedback">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 <input type="password" class="form-control  " placeholder="当前密码" title="当前密码" id="currentPwd" name="currentPwd"  AUTOCOMPLETE="off">
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
               </div>
               <div class="form-group has-feedback">
+                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 <input type="password" class="form-control " placeholder="新密码" title="新密码" id="newPwd" name="newPwd"  AUTOCOMPLETE="off">
-                <span class="glyphicon glyphicon-lock form-control-feedback"></span>
               </div>
               <div class="form-group has-feedback">
-                <input type="password" class="form-control " placeholder="再次输入密码" title="再次输入密码" id="confirmNewPwd" name="confirmNewPwd" AUTOCOMPLETE="off">
                 <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                <input type="password" class="form-control " placeholder="再次输入密码" title="再次输入密码" id="confirmNewPwd" name="confirmNewPwd" AUTOCOMPLETE="off">
               </div>
               <div class="row">
                 <button type="submit" class="btn btn-primary btn-block btn-flat" onclick="">确定修改</button>
