@@ -377,7 +377,7 @@ class Group extends MY_Controller {
 
             show_404();exit();
           }    
-          var_dump($data);exit;                    
+          // var_dump($data);exit;                    
           $this->load->view('group/group_seeMember_view', isset($data) ? $data : "");   
         }
     }

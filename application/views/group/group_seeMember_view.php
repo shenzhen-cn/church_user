@@ -3,7 +3,6 @@
 		$group_leader_id 							= isset($user_info->group_leader_id) ? $user_info->group_leader_id : ""; 
         $userHeadSrc_info                           = isset($userHeadSrc_info) ?  $userHeadSrc_info : "";
 		$group_user_info 							= isset($group_user_info) ? $group_user_info : "";	
-		// var_dump($group_user_info);exit;
 		$group_user_id                              = isset($group_user_info->user_id) ? $group_user_info->user_id : ""; 
 		$group_user_nick                            = isset($group_user_info->nick) ? $group_user_info->nick: ""; 
  		$spirituality_results 						= isset($spirituality_results) ? $spirituality_results : "";
@@ -140,7 +139,8 @@
 														$praiser_user_id = $v_p->praiser_user_id;
 														$nick            = $v_p->nick; ?>
 											<li class="box-praise"> 
-												<?php if($praiser_user_id == $user_id) echo '我';else echo $nick; ?>、
+												<?php echo  ($praiser_user_id == $user_id) ? '我' : $nick;	
+												 ?>
 											</li>
 											<?php 	} 	
 											} ?>
@@ -174,7 +174,7 @@
 											 	  <?php   } ?>
 											 	  <div class='comment-text '>
 											 	    <span class="username">
-											 	      <?php if($commenter_id == $user_id) echo "我";else  echo $commenter_nick; ?>
+											 	      <?php if($commenter_id == $user_id){ echo '我';}else{echo $commenter_nick;} ?>
 											 	      <span class='text-muted pull-right'><?php echo $comments_tran_created_at; ?></span>
 											 	    </span><!-- /.username -->
 											 	    <?php echo $contents; ?>													 	    
@@ -250,7 +250,20 @@
 												 	  		<div class="comment-text">
 												 	  			<span class="username">
 												 	  				<span class='text-muted pull-right'><?php echo $reply_created_at; ?></span>
-												 	  				<?php if(!empty($replier_id) && $replier_id == $user_id) echo "我";else echo $reply_nick; ?> 回复 <?php  if($commenter_id == $user_id) echo "我";else  echo $commenter_nick;  ?>
+												 	  				<?php if(!empty($replier_id) && ($replier_id == $user_id)) {
+												 	  					echo '我';	
+												 	  				}else{
+												 	  					echo $reply_nick;	
+												 	  				}  
+												 	  				?>
+												 	  				 回复 
+												 	  				<?php 
+												 	  					 if($commenter_id == $user_id) {
+												 	  					 	echo '我';
+												 	  					 }else {
+												 	  					 	 echo $commenter_nick;
+												 	  					} 
+												 	  				 ?>
 												 	  			</span>
 												 	  			<?php echo $reply_contents; ?>
 												 	  		</div>
