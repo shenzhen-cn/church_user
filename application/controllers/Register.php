@@ -66,21 +66,12 @@ class Register extends MY_Controller {
 
 	public function improveInformation()
 	{
-		$temp_uploadphoto = $this->input->post('uploadphoto');
-		
-		$params['userHeadSrc'] = null;
-		if(!empty($temp_uploadphoto)){
-			$fileInfo = $_FILES['uploadphoto'];			
-			$uploadPath = "/var/www/html/church/church_user/public/uploads/userHeadsrc";
-			$params['userHeadSrc']	= uploadfiles($fileInfo,$uploadPath)['newName'];
-
-
-		}
-
+		$fileInfo = $_FILES['uploadphoto'];		
+		$uploadPath = "/var/www/html/church/church_user/public/uploads/userHeadsrc";
+		$params['userHeadSrc']	= uploadFiles( $fileInfo,$uploadPath)['newName'];		
 		$params['sex'] 	  		 = $this->input->post('sex');
 		$params['group_id'] 	 = $this->input->post('group_id');
 		$params['user_id'] 		 = $this->session->userdata('user_id');
-		var_dump($params);exit;
 		$url = API_BASE_LINK.'register/improveInformation';
 		$result = doCurl($url, $params, 'POST');
 		$is_bool = json_decode($result['output'])->results;
