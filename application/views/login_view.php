@@ -36,7 +36,6 @@
         <br>
         <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button><br>
         <a type="button" href="<?php echo site_url('forgetpassword'); ?>">忘记密码？</a><br>
-
         </form>
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
