@@ -26,7 +26,7 @@
                <input type="text" class="form-control" id="checkcode" name="checkcode" placeholder="验证码:"  AUTOCOMPLETE="off"/>
             </div><!-- /.col -->
             <div class="form-group col-xs-4">
-               <img id="checkpic" onclick="changing()" src='public/images/checkcode.php'>
+               <img id="checkpic" onclick="changing()" src='<?php echo base_url();?>public/images/checkcode.php'>
             </div><!-- /.col -->
             <div class="form-group col-xs-4">
                <a href="javascript:;"  onclick="changing()" style="color:red;"><small style="width:80px;height:34px">看不清，点击刷新</small></a>
@@ -35,13 +35,12 @@
           <br>
           <button type="submit" class="btn btn-primary btn-block btn-flat">登录</button><br>
           <a type="button" href="<?php echo base_url('forgetpassword'); ?>">忘记密码？</a><br>
-
        </form>
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->
 
     <!-- jQuery 2.1.4 -->
-    <script src="<?php echo base_url(); ?>public/plugins/js/jQuery-2.1.4.min.js"></script>
+    <script src="<?php echo base_url(); ?>public/plugins/js/jquery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.5 -->
     <script src="<?php echo base_url(); ?>public/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>public/plugins/js/jquery.validate.js"></script>
