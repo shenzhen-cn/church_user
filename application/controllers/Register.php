@@ -17,9 +17,9 @@ class Register extends MY_Controller {
 
 	public function index() {
 
-		$op = $this->input->get('op') ? $this->input->get('op') : "" ;
-		$id = $this->input->get('id') ? $this->input->get('id') : "" ;
-		$token = $this->input->get('token') ? $this->input->get('token') : "";
+		$op = $this->input->get('op');
+		$id = $this->input->get('id');
+		$token = $this->input->get('token');
 
 			var_dump("srwerwe");exit;
 		if (!empty($op) && !empty($id) &&  !empty($token)) {
