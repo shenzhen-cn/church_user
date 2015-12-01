@@ -67,6 +67,7 @@ class Register extends MY_Controller {
 	public function improveInformation()
 	{
 		$temp_uploadphoto = $this->input->post('uploadphoto');
+		
 		$params['userHeadSrc'] = null;
 		if(!empty($temp_uploadphoto)){
 			$fileInfo = $_FILES['uploadphoto'];			

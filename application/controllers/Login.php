@@ -78,4 +78,11 @@ class Login extends MY_Controller {
 		}
 	}	
 
+
+	public function testphp()
+	{
+		$temp = $this->input->get();
+		var_dump($temp);exit;
+	}
+
 }
