@@ -72,7 +72,7 @@ class Group extends MY_Controller {
             } else {
                 show_404();exit();
             }  
-          var_dump($data);exit();
+          // var_dump($data);exit();
           $this->load->view('group/group_view' , isset($data) ? $data : "");
             
         }
