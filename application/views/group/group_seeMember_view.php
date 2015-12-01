@@ -17,8 +17,9 @@
 		$prayer_total                               = $urgent_group_total_count + $prayer_group_total_count; 
 		$group_ranking_result 	    				= isset($group_ranking_result) ? $group_ranking_result : "";
 		$tq_ranking_result 	        				= isset($tq_ranking_result) ? $tq_ranking_result : "";
-		$spirituality_id_                           = !empty($this->input->get('spirituality_id_')) ? $this->input->get('spirituality_id_') : "";
-		$content                                    = !empty($this->input->get('content')) ? $this->input->get('content') : "";
+
+		$spirituality_id_                           = $this->input->get('spirituality_id_');
+		$content                                    = $this->input->get('content');
 		
 ?>	
 <!DOCTYPE html>
