@@ -115,7 +115,7 @@
 			browseClass: "btn btn-info",		    
 		    allowedFileExtensions: ['jpg', 'png'],
 		    maxFileSize: 2048,
-		    maxFileCount: false,
+		    maxFileCount: 5,
 		    allowedFileTypes: ['image'],
 		    elErrorContainer: '#errorBlock',
 
