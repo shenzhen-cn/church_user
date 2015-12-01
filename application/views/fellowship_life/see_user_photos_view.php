@@ -58,7 +58,7 @@
 							  	?>	
      	             			<?php if(!empty($paths)){ ?>     	             			
      	   			            <div class="item item_src_<?php echo $src_id;?>">
-     	               			    <a href="<?php echo site_url().$paths; ?>" title="《<?php echo $album_name; ?>》第<?php echo $key+1; ?>张" data-gallery>
+     	               			    <a href="<?php echo base_url().$paths; ?>" title="《<?php echo $album_name; ?>》第<?php echo $key+1; ?>张" data-gallery>
      	               	                <img src="<?php echo base_url().$paths; ?>"  class="img-responsive">
      	               			    </a>
      	               			    <br>
