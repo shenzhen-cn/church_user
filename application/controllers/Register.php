@@ -23,8 +23,8 @@ class Register extends MY_Controller {
 
 		if (!empty($op) && !empty($id) &&  !empty($token)) {
 
+			var_dump(API_BASE_LINK.'register/findReUserName?op='.$op."&id=".$id."&token=".$token);exit;
 			$result = doCurl(API_BASE_LINK.'register/findReUserName?op='.$op."&id=".$id."&token=".$token);
-			var_dump($result);exit;
 
 			if ($result && $result['http_status_code'] == 200) {
 
