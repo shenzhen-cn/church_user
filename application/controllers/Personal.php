@@ -63,7 +63,7 @@ class Personal extends MY_Controller {
 				$fileInfo = $_FILES['uploadphoto'];
 				$uploadPath = "/var/www/html/church/church_user/public/uploads/userHeadsrc";
 				$msg_return = uploadFiles( $fileInfo,$uploadPath);
-
+				var_dump($msg_return);exit;
 				if (isset($msg_return['msg']) ) {
 					$this->session->set_flashdata('error', $msg_return['msg']);
 					redirect('setPersonalData','refresh');	
