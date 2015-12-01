@@ -45,7 +45,8 @@
 	       	 	          			foreach ($user_photos_results as $key => $value) {
 	       	 	          				$user_album_src_id =$value->user_album_src_id;
 	       	 	          				$user_album_src = $value->user_album_src;
-	       	 	          				var_dump(site_url().$user_album_src;);exit;
+	       	 	          				$temp = site_url().$user_album_src;
+	       	 	          				var_dump($temp);exit;
 	       	 	          				$user_album_id  =$value->user_album_id;
 	       	 	          				$album_src_created_at = $value->album_src_created_at;
 	       	 	          				$user_album_name = $value->user_album_name;
