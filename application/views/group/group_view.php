@@ -122,7 +122,7 @@
 													 	<img src="<?php echo base_url()."public/uploads/userHeadsrc/$userHead_src"; ?>"  alt="User Image">
 													 <?php   } ?>
 													</a>
-													 <p class="users-list-name" ><?php echo  ($group_user_id == $user_id) "我" ? $nick; ?></p>
+													 <p class="users-list-name" ><?php echo  ($group_user_id == $user_id) ? '我' : $nick; ?></p>
 													<span class="users-list-date">灵修：<p class="label label-success"><?php echo $count_spirituality; ?>次</p></span>
 												</li>
 											<?php } ?>

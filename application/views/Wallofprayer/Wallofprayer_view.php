@@ -138,7 +138,7 @@
 											</div><!--/.direct-chat-messages-->
 
 										</div><!-- /.box-body -->
-										<?php if (!empty($is_send == 'N')) { ?>
+										<?php if ($is_send == 'N') { ?>
 
 											<div class="box-footer">
 												<form action="<?php echo site_url('wallofprayer/send_prayer'); ?>" method="post">
