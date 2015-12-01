@@ -2,16 +2,13 @@
 $bible_section    = isset($bible_section) ? $bible_section : "";
 $bible_note       = isset($bible_note) ? $bible_note : "";
 $count_chapter    = isset($count_chapter) ? $count_chapter : '';
-	// var_dump($count_chapter);exit;
+
 
 $id  = $this->input->get('chapter_id') ? $this->input->get('chapter_id') : "1";
 $book_id  = $this->input->get('book_id') ? $this->input->get('book_id') : "1";
 $id++;
-	// var_dump($id);exit;
-
 $volume_name    = isset($volume_name) ? $volume_name : "";
 
-	// var_dump($bible_section);exit;
 ?>
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -122,12 +119,12 @@ $volume_name    = isset($volume_name) ? $volume_name : "";
 		            				<ul class="pagination pagination-sm no-margin pull-right">
 		            					<?php if (($temp = $id-2) >= 1 ) { ?>
 		            					<li>
-		            						<a href="<?php echo site_url('look_volume?book_id='."$bibile_book_id".'&chapter_id='."$temp"); ?>" class="btn btn-box-tool"  title="上一章">上一章</a>
+		            						<a href="<?php echo site_url('look_volume?book_id='."$bibile_book_id".'&chapter_id='."$temp"); ?>" class="btn btn-box-tool">上一章</a>
 		            					</li>
 		            					<?php  } ?>
 		            					<?php if ($id <= $count_chapter) { ?>
 		            					<li>
-		            						<a href="<?php echo site_url('look_volume?book_id='."$bibile_book_id".'&chapter_id='."$id"); ?>" class="btn btn-box-tool"  title="下一章">下一章</a>
+		            						<a href="<?php echo site_url('look_volume?book_id='."$bibile_book_id".'&chapter_id='."$id"); ?>" class="btn btn-box-tool">下一章</a>
 		            					</li>
 		            					<?php } ?>
 		            				</ul>

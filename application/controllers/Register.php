@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
 
 
 class Register extends MY_Controller {
-
+	echo "Register";exit;
 	 /**
      * Constructor function
      */

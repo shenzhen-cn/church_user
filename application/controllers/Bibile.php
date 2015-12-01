@@ -61,8 +61,6 @@
 				 $data['bible_note']    	= $results->bible_note;
 				 $data['volume_name']    	= $results->volume_name;
 				 $data['count_chapter']    	= $results->count_chapter;
-
-				 // var_dump($count_chapter);exit;
 				 $this->load->view('bibile/look_volume_view',isset($data) ? $data : "");	
 			}else{
 				show_404();exit;
