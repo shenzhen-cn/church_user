@@ -45,6 +45,7 @@
 	       	 	          			foreach ($user_photos_results as $key => $value) {
 	       	 	          				$user_album_src_id =$value->user_album_src_id;
 	       	 	          				$user_album_src = $value->user_album_src;
+	       	 	          				var_dump(site_url().$user_album_src;);exit;
 	       	 	          				$user_album_id  =$value->user_album_id;
 	       	 	          				$album_src_created_at = $value->album_src_created_at;
 	       	 	          				$user_album_name = $value->user_album_name;
@@ -53,7 +54,7 @@
 	       	 	          				$userHead_src = $value->userHead_src; ?>
 		       	 	            <div class="item">
 		       	 	            	<?php if (empty($user_album_src)) {?>
-		       	 	            	   <img src="<?php echo base_url(); ?>public/images/mrpho.jpg" class="user-image">
+		       	 	            	   <img src="<?php echo base_url(); ?>public/images/no_img.jpg" class="user-image">
 		       	 	            	<?php } else { ?>
 	   	 	            			    <a href="<?php echo site_url().$user_album_src; ?>" title="《<?php echo $user_album_name; ?>》" data-gallery>
 	   	 	            	                <img src="<?php echo base_url().$user_album_src; ?>"  class="img-responsive">			        
