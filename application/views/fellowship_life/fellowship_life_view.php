@@ -1,7 +1,6 @@
 <?php 
 	$user_photos_results = isset($user_photos_results) ? $user_photos_results : "";
 	$role_user_photos_url =  ROLE_USER_PHOTOS_URL;
-	// var_dump($role_user_photos_url);exit;
  ?>
 <!DOCTYPE html>
 <html lang="zh-CN">

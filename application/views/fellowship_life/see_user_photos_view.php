@@ -159,7 +159,6 @@
 
 			function del_photos (argument) {
 				var src_id = argument;
-				// console.log(src_id)
 				var r = confirm("你确定删除此文件么");
 
 				if(r == true && src_id != null){
