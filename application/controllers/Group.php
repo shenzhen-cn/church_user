@@ -25,7 +25,7 @@ class Group extends MY_Controller {
             $data['user_id'] = $this->session->userdata('user_id');
 
             $result = doCurl(API_BASE_LINK.'group/find_group_by_group_id?group_id='."$group_id");
-//            var_dump($result);exit;
+           var_dump($result);exit;
             if ($result && $result['http_status_code'] == 200) {
                 $content  =  json_decode($result['output']);
 //                var_dump($content);exit;
