@@ -33,7 +33,7 @@ class Register extends MY_Controller {
 
 				$get_op  = $content->op;
 
-				if ($status_code == 200 && $get_op == 'active') {
+				if ($status_code == 200 && ($get_op == 'active')) {
 					$find_re_user_by_token          = $content->find_re_user_by_token;
 					$data['id'] 					= $find_re_user_by_token->id;
 					$data['user_name']  			= $find_re_user_by_token->user_name;
@@ -41,7 +41,7 @@ class Register extends MY_Controller {
 
 					$this->load->view('register_view' , isset($data) ? $data : NULL);
 
-				} else if ( $status_code == 200 && $get_op = 'resetpwd' ){
+				} else if ( $status_code == 200 && ($get_op = 'resetpwd') ){
 
 						$find_re_user_by_token 	= $content->find_re_user_by_token;
 						$find_user_name 				= $content->find_user_name;

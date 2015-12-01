@@ -72,7 +72,7 @@ class Personal extends MY_Controller {
 					$params['userHeadSrc']	= $msg_return['newName'];
 				}	
 				if(!empty($data['userHeadSrc_info'])){
-					$file = 'public/uploads/userHeadsrc/'.$data['userHeadSrc_info'];
+					$file = '/var/www/html/church/church_user/public/uploads/userHeadsrc/'.$data['userHeadSrc_info'];
 					if(file_exists($file)){					
 						!unlink($file);
 					}				 
