@@ -3,7 +3,6 @@ if (!defined('BASEPATH'))  exit('No direct script access allowed');
 
 
 class Register extends MY_Controller {
-	echo "Register";exit;
 	 /**
      * Constructor function
      */
