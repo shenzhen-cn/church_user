@@ -9,11 +9,10 @@ class Login extends MY_Controller {
     }
 
 	public function index() {	
-
-		if ($this->session->userdata('access_token')) {
-			
+		$access_token = $this->session->userdata('access_token');
+		if ($access_token) {			
             $this->session->unset_userdata('access_token');
-			redirect('login','refresh');
+			redirect(site_url('login'),'refresh');
 		}else{
 
 			$user_name_email  = trim($this->input->post('user_name'));
