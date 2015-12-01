@@ -8,7 +8,7 @@
 <link rel="shortcut icon" href="<?php echo base_url(); ?>public/images/favicon.png" />
 <!-- Bootstrap 3.3.5 -->
 <link href="<?php echo base_url(); ?>public/css/bootstrap.min.css" rel="stylesheet">
-<link href="<?php echo base_url(); ?>public/css/bootstrap.css.map" rel="stylesheet">
+<link href="<?php echo base_url(); ?>public/css/bootstrap.css.map" rel="stylesheet/map">
 <!-- Ionicons -->
 <link rel="stylesheet" href="<?php 	echo base_url(); ?>public/css/ionicons.css">
 <!-- Ionicons -->
