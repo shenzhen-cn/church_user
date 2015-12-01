@@ -26,7 +26,7 @@
         <small>IN GOD WE TRUST</small>
       </h1>
       <ol class="breadcrumb">
-        <li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+        <li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
         <li class="active">牧师讲道</li>
       </ol>
     </section>
@@ -77,7 +77,7 @@
                   }
                   ?>
                   <li class="<?php echo $active; ?>">
-                    <a href="<?php  echo base_url('priest_preach?id='."$p_p_c_n_id"); ?>"><i class="fa  <?php echo $fa_style; ?>"></i><?php echo $class_name; ?>
+                    <a href="<?php  echo site_url('priest_preach?id='."$p_p_c_n_id"); ?>"><i class="fa  <?php echo $fa_style; ?>"></i><?php echo $class_name; ?>
                       <?php
                           $is_not_readed_count =  isset($is_readed_count_c_p_p_id->$p_p_c_n_id) ? $is_readed_count_c_p_p_id->$p_p_c_n_id : ""; 
                           if (isset($is_not_readed_count) && !empty($is_not_readed_count)) { 
