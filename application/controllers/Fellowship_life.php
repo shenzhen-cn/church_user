@@ -31,8 +31,6 @@ class Fellowship_life extends MY_Controller {
 		    	$this->remove_alert_by_user_id($user_id,$table_name);
 		    }
 
-		    $prev_day = $this->input->get('date');
-
 		    $result = doCurl(
 		    		API_BASE_LINK.
 		    		'fellowship_life/get_today_user_photos?limit='.$data['results'].
@@ -65,7 +63,7 @@ class Fellowship_life extends MY_Controller {
 	{
 		$data['results'] = 10;
 		$page = $this->input->post('page');
-	    $data['page'] = $page ? $page : 1;
+	    $data['page'] = $page ? $page : 2;
 
 	    if(!empty($data['page'])){	    
 	    	$user_id = $this->session->userdata('user_id');
