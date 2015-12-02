@@ -173,12 +173,12 @@
 						data:{src_id:src_id,paths_src:paths_src},
 					})
 					.done(function(data) {
-						console.log(data);
+						// console.log(data);
 						if(data.status == 200){
 
 							$(".item_src_"+src_id).remove();
 						}else{
-							alert(data.message);
+							alert("异常错误！");
 						}	
 					})
 					.fail(function() {
