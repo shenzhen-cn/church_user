@@ -18,18 +18,17 @@ class Fellowship_life extends MY_Controller {
 
 		    redirect('login','refresh');		    
 		}else { 
+
+		    $user_id = $this->session->userdata('user_id');
+		    $table_name = 'user_album_src';
+		    $this->remove_alert_by_user_id($user_id,$table_name);
+
 		    $data =  $this->tq_header_info();
-		    $count_user_album_src_messages = isset($data['count_user_album_src_messages']) ? $data['count_user_album_src_messages'] : "";
+
 
 		    $data['results'] = 10;
 		    $page = $this->input->get('page');
 		    $data['page'] = $page ? $page : 1;
-
-		    if (!empty($count_user_album_src_messages)) {
-		    	$user_id = $this->session->userdata('user_id');
-		    	$table_name = 'user_album_src';
-		    	$this->remove_alert_by_user_id($user_id,$table_name);
-		    }
 
 		    $result = doCurl(
 		    		API_BASE_LINK.

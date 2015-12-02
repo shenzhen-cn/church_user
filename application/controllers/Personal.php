@@ -15,14 +15,16 @@ class Personal extends MY_Controller {
 			redirect('login','refresh');
 		}else {
 
-			$data =  $this->tq_header_info();
 			$user_id         = $this->session->userdata('user_id');
 			$spirituality_id = $this->input->get('spirituality_id');		
+
 			$result = doCurl(API_BASE_LINK.'personal/get_informations?user_id='.$user_id.'&spirituality_id='.$spirituality_id);
+			
+			$data =  $this->tq_header_info();
+			
 			if ($result && $result['http_status_code'] == 200) {
 				$content     = json_decode($result['output']);
 				$status_code = $content->status_code;
-				// $results     = $content->results;
 				if($status_code == 200){
 					$data['informations'] = $content->results;				
 				}	

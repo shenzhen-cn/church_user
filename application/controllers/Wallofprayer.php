@@ -40,7 +40,6 @@ class Wallofprayer extends MY_Controller {
 				}
 			}
 
-//			var_dump($get_all_prayer);exit;
 			$this->load->view('Wallofprayer/timeline_of_prayer_view',isset($data) ? $data : "");
 		}
 	}
