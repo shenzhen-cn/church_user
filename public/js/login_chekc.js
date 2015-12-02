@@ -1,8 +1,3 @@
-
-function  changing() {
-	document.getElementById('checkpic').src="../public/images/checkcode.php?"+Math.random();
-}
-
 //登录表单验证
 (function($) {
 	$().ready(function() {

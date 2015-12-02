@@ -38,7 +38,6 @@
     <script src="<?php echo base_url(); ?>public/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>public/plugins/js/jquery.validate.js"></script>
     <script src="<?php echo base_url(); ?>public/js/f_p_chekc.js"></script>
-
     <style type="text/css" >  
 
       input.error { border: 1px solid red; }
