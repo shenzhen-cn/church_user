@@ -130,10 +130,10 @@
 		}).on('filebatchuploadsuccess', function(event, data, id, index) {//Y
 			console.log("filebatchuploadsuccess");				
 		}).on('filebatchuploaderror', function(event, data, id, index) {//Y
-			var statu = confirm("上传照片时候出错，请重试?");
-	    		if(statu){
-			    	$('#file-upload').fileinput('clear');	    				
-	    		}	
+			alert("上传照片时候出错，请重试?");
+	    		// if(statu){
+			    // 	$('#file-upload').fileinput('clear');	    				
+	    		// }	
 		}).on('fileuploaderror', function(event, data, id, index) {//Y
 	    	$('#file-upload').fileinput('disable');			
 			var statu = confirm("上传照片时候出错，请重试?");
