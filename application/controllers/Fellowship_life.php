@@ -21,7 +21,7 @@ class Fellowship_life extends MY_Controller {
 		    $data =  $this->tq_header_info();
 		    $count_user_album_src_messages = isset($data['count_user_album_src_messages']) ? $data['count_user_album_src_messages'] : "";
 
-		    $data['results'] = 20;
+		    $data['results'] = 10;
 		    $page = $this->input->get('page');
 		    $data['page'] = $page ? $page : 1;
 
@@ -73,7 +73,7 @@ class Fellowship_life extends MY_Controller {
 		    $result = doCurl(API_BASE_LINK.
 		    		'fellowship_life/get_today_user_photos?limit='.$data['results'].
 		    		'&'.'page='.$data['page']);		 
-		    
+
 			if ($result && $result['http_status_code'] == 200) {
 
 				$content = json_decode($result['output']);
