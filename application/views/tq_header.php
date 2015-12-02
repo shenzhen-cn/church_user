@@ -377,13 +377,6 @@
                 <?php  }?>
               </a>
               <ul class="treeview-menu">
-                <li class="open_wall_photos"><a href="<?php  echo site_url('fellowship_life'); ?>"><i class="fa fa-circle-o"></i> 照片墙
-                  <?php if (!empty($count_user_album_src_messages)) { ?>                  
-                    <span class="label label-primary pull-right">
-                    <?php echo $count_user_album_src_messages; ?></span>
-                  <?php } ?>
-                  </a>
-                </li>
                 <li>
                   <a href="#"><i class="fa fa-circle-o"></i> 相册 <i class="fa fa-angle-left pull-right"></i></a>
                   <ul class="treeview-menu">
@@ -395,7 +388,18 @@
 
               </ul>
             </li>
-            
+           
+            <li class="open_wall_photos">
+              <a href="<?php  echo site_url('fellowship_life'); ?>">
+                <i class="fa  fa-image"></i> <span>照片墙</span>
+                <?php if (!empty($count_user_album_src_messages)) { ?>                  
+                  <span class="label label-primary pull-right">
+                  <?php echo $count_user_album_src_messages; ?></span>
+                <?php } ?>
+              </a>
+            </li>
+
+
             <li>
               <a href="<?php echo site_url('Wallofprayer'); ?>">
                 <i class="fa fa-fire"></i> <span>祷告墙</span>
