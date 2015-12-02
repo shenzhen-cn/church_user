@@ -74,9 +74,13 @@
          
       });
       
-      // //点击提示消失 总数减一
-      // $().click(function () {
-        
-      // });
-      //end 
+      //是否打开照片墙
+      $(".open_wall_photos").click(function() {
+        var r = confirm("将加载很多图片，建议你使用WiFi查看!");
+        if(r){
+          return false;
+        }
+
+      });
+      //end
     });

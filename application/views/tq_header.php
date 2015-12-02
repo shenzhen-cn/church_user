@@ -97,7 +97,7 @@
                           </li>                                       
                         <?php } ?>
                         <?php if (!empty($count_user_album_src_messages)) { ?>                        
-                          <li>
+                          <li class="open_wall_photos">
                             <a href="<?php echo site_url('fellowship_life'); ?>">
                               <i class="fa fa-users text-red"></i> 团契生活 更新 <?php echo $count_user_album_src_messages; ?>张照片
                             </a>
@@ -377,7 +377,7 @@
                 <?php  }?>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php  echo site_url('fellowship_life'); ?>"><i class="fa fa-circle-o"></i> 照片墙
+                <li class="open_wall_photos"><a href="<?php  echo site_url('fellowship_life'); ?>"><i class="fa fa-circle-o"></i> 照片墙
                   <?php if (!empty($count_user_album_src_messages)) { ?>                  
                     <span class="label label-primary pull-right">
                     <?php echo $count_user_album_src_messages; ?></span>
