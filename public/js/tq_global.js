@@ -77,8 +77,8 @@
       //是否打开照片墙
       $(".open_wall_photos").click(function() {
         var r = confirm("将加载大量图片，建议WiFi下查看，如果继续查看，请点击确定按钮!");
-        if(r){
-          return true;
+        if(!r){
+          return false;
         }
 
       });
