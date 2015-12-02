@@ -47,7 +47,7 @@
     <script src="<?php echo base_url(); ?>public/js/login_chekc.js"></script>
     <script>
       function  changing() {
-        document.getElementById('checkpic').src="../public/images/checkcode.php?"+Math.random();
+        document.getElementById('checkpic').src="/church_user/public/images/checkcode.php?"+Math.random();
       }
     </script>
     <style type="text/css" >  
