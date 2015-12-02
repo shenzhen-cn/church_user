@@ -70,11 +70,10 @@ class Fellowship_life extends MY_Controller {
 	    	$table_name = 'user_album_src';
 	    	$this->remove_alert_by_user_id($user_id,$table_name);
 
-		    $result = doCurl(
-		    		API_BASE_LINK.
+		    $result = doCurl(API_BASE_LINK.
 		    		'fellowship_life/get_today_user_photos?limit='.$data['results'].
-		    		'&'.'page='.$data['page']
-				    	);		 
+		    		'&'.'page='.$data['page']);		 
+		    
 			if ($result && $result['http_status_code'] == 200) {
 
 				$content = json_decode($result['output']);
