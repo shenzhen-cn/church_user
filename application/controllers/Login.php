@@ -21,7 +21,6 @@ class Login extends MY_Controller {
 			$checkcode        = md5($checkcode1);
 			$cookie_checkcode = $this->input->cookie("checkpic");
 			
-
 			if (!empty($checkcode1) && ($checkcode != $cookie_checkcode)) {
 				$temp_checkcode = $this->input->post('checkcode');
 				if(!empty($temp_checkcode)){
@@ -33,7 +32,8 @@ class Login extends MY_Controller {
 		    } else{
 					if (! empty($user_name_email)) {
 						$result = doCurl(API_BASE_LINK.'login/login_email/find?user_name_email='.$user_name_email.'&password='.$password);
-						 // var_dump($result);exit;
+						
+						// var_dump($result);exit;
 					}
 
 				    if (isset($result) && $result['http_status_code'] == 400)
