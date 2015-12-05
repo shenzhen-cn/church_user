@@ -3,6 +3,8 @@
 		$group_leader_id 							= isset($user_info->group_leader_id) ? $user_info->group_leader_id : ""; 
         $userHeadSrc_info                           = isset($userHeadSrc_info) ?  $userHeadSrc_info : "";
 		$group_user_info 							= isset($group_user_info) ? $group_user_info : "";	
+		$group_user_info_group_id                   = isset($group_user_info->group_id) ? $group_user_info->group_id: ""; 
+
 		$group_user_id                              = isset($group_user_info->user_id) ? $group_user_info->user_id : ""; 
 		$group_user_nick                            = isset($group_user_info->nick) ? $group_user_info->nick: ""; 
  		$spirituality_results 						= isset($spirituality_results) ? $spirituality_results : "";
@@ -39,8 +41,8 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
-				<li>小组</li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>				
+				<li><a href="<?php echo site_url("group?group_id=".$group_user_info_group_id); ?>">小组</a></li>
 				<li class="active">成员信息</li>
 			</ol>
 		</section>

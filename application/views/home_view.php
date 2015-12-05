@@ -274,11 +274,13 @@
 																		<span class="direct-chat-name pull-left"><?php if($s_user_id == $user_id) echo "&nbsp;&nbsp;&nbsp;我";else echo $nick; ?></span>
 																		<span class="direct-chat-timestamp pull-right"><?php echo $created_at; ?></span>
 																	</div><!-- /.direct-chat-info -->
-																	<?php if (empty($userHead_src)) {?>
-																	<img src="<?php echo base_url(); ?>public/images/mrpho.jpg" class="direct-chat-img" alt="User Image">
-																	<?php } else { ?>
-																	<img src="<?php echo base_url()."public/uploads/userHeadsrc/$userHead_src"; ?>" class="direct-chat-img" alt="User Image">
-																	<?php   } ?>
+																	<a href="<?php echo site_url("seeMember?user_id=".$s_user_id."&content=coments"); ?>" >																	
+																		<?php if (empty($userHead_src)) {?>
+																		<img src="<?php echo base_url(); ?>public/images/mrpho.jpg" class="direct-chat-img" alt="User Image">
+																		<?php } else { ?>
+																		<img src="<?php echo base_url()."public/uploads/userHeadsrc/$userHead_src"; ?>" class="direct-chat-img" alt="User Image">
+																		<?php   } ?>
+																	</a>
 																	<div class="direct-chat-text">
 																		<b>金句：</b><br>
 																		<p>&nbsp;<?php echo $gold_sentence; ?></p>

@@ -264,7 +264,7 @@
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="<?php echo site_url('personal'); ?>" class="btn btn-default btn-flat">个人</a>
+                      <a href="<?php echo site_url('setPersonalData'); ?>" class="btn btn-default btn-flat">个人</a>
                     </div>
                     <div class="pull-right">
                       <a href="<?php echo site_url('sign_out'); ?>" class="btn btn-default btn-flat">退出</a>
