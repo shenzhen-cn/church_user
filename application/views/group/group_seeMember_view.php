@@ -143,7 +143,7 @@
 														$nick            = $v_p->nick; ?>
 											<li class="box-praise"> 
 												<?php echo  ($praiser_user_id == $user_id) ? '我' : $nick;	
-												 ?>
+												 ?>、
 											</li>
 											<?php 	} 	
 											} ?>

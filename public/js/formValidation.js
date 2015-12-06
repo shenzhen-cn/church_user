@@ -34,7 +34,7 @@
 	var re_t = /[^\a-zA-Z]/g;//not letters
 	var re = /[^\w\u4e00-\u9fa5]/g;
 
- 	var str1 = "<i class='ati'></i>昵称：请输入4-20个字符，一个汉字为两个字符，推荐不使用自己的真是姓名";
+ 	var str1 = "<i class='ati'></i>昵称：请输入4-20个字符，一个汉字为两个字符，推荐不使用自己的真实姓名";
  	var str2 = "<i class='err'></i>× 含有非法字符!";
  	var str3 = "<i class='err'></i>× 昵称不能为空!";
  	var str4 = "<i class='err'></i>× 昵称长度不能大于20个字符!<br>";
