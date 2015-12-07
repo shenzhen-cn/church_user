@@ -6,6 +6,13 @@
 <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 
 <link rel="shortcut icon" href="<?php echo base_url(); ?>public/images/favicon.png" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="applicable-device"content="mobile">
+<meta name="format-detection" content="telephone=no">
+<link rel="apple-touch-icon" sizes="72x72" href="<?php echo base_url(); ?>public/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="114x114" href="<?php echo base_url(); ?>public/images/apple-touch-icon-retina.png">
+
 <!-- Bootstrap 3.3.5 -->
 <link href="<?php echo base_url(); ?>public/css/bootstrap.min.css" rel="stylesheet">
 <link href="<?php echo base_url(); ?>public/css/bootstrap.css.map" rel="stylesheet/map">
