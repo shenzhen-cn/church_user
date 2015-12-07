@@ -141,7 +141,7 @@
 										<?php if ($is_send == 'N') { ?>
 
 											<div class="box-footer">
-												<form action="<?php echo site_url('wallofprayer/send_prayer'); ?>" method="post">
+												<form action="<?php echo site_url('Wallofprayer/send_prayer'); ?>" method="post">
 													<div class="input-group">
 
 														<textarea onpropertychange="if(value.length>400) value=value.substr(0,400)" onKeyDown="LimitTextArea(this)" onKeyUp="LimitTextArea(this)" onkeypress="LimitTextArea(this)" name="content_prayer" placeholder="祷告内容..." class="form-control" required="required" style="width: 100%; height: 34px; font-size: 14px; line-height: 20px;  solid #dddddd; padding: 10px; resize: none;"></textarea>
