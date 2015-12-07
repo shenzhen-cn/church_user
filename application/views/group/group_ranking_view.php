@@ -2,6 +2,8 @@
 $notice_groups_results = isset($notice_groups_results) ? $notice_groups_results : "";
 $last_month_results    = isset($last_month_results) ? $last_month_results : "";
 $last_week_results     = isset($last_week_results) ? $last_week_results : "";
+$setting_group_id    = isset($user_info->group_id) ?  $user_info->group_id : "";
+
 
 ?>
 <!DOCTYPE html>
@@ -22,7 +24,7 @@ $last_week_results     = isset($last_week_results) ? $last_week_results : "";
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
-				<li>小组</li>
+        <li><a href="<?php echo site_url('group?group_id='.$setting_group_id); ?>">小组</a></li>        
 				<li class="active">小组灵修排名</li>
 			</ol>
 		</section>  		

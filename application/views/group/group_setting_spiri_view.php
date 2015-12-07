@@ -1,12 +1,12 @@
 <?php 
 	$results = isset($results) ? $results : "";
 	$book_name = isset($results[0]->name) ? $results[0]->name : "";
-	// var_dump($book_name);exit;
 	$testament = $this->input->get('testament') ? $this->input->get('testament') : "" ;
 	$group_id = isset($user_info->group_id) ? ($user_info->group_id) : "";
 	$get_book_id = $this->input->get('book_id') ? $this->input->get('book_id') : "" ;
 	$chapter_id = $this->input->get('chapter_id') ? $this->input->get('chapter_id') : "" ;
-	// var_dump($chapter_id);exit;
+	$setting_group_id    = isset($user_info->group_id) ?  $user_info->group_id : "";
+
 ?>
 
 <!DOCTYPE html>
@@ -27,7 +27,7 @@
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
-				<li>小组</li>
+				<li><a href="<?php echo site_url('group?group_id='.$setting_group_id); ?>">小组</a></li>				
 				<li class="active">小组灵修设置</li>
 			</ol>
 		</section>

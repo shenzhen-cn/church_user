@@ -1,5 +1,7 @@
 <?php 
 	$today_group_prayer  = isset($today_group_prayer) ? $today_group_prayer : "" ;
+	$setting_group_id    = isset($user_info->group_id) ?  $user_info->group_id : "";
+
 	// var_dump($today_group_prayer);exit;
  ?>
 <!DOCTYPE html>
@@ -20,7 +22,7 @@
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
-				<li>小组</li>
+				<li><a href="<?php echo site_url('group?group_id='.$setting_group_id); ?>">小组</a></li>				
 				<li class="active">小组祷告设置</li>
 			</ol>
 		</section>

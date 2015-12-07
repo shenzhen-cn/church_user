@@ -8,6 +8,8 @@
 		$endtime = $this->input->post('endtime');
 		$users_id = $this->input->post('users_id');
 		$check_class = $this->input->post('check_class');
+		$setting_group_id    = isset($user_info->group_id) ?  $user_info->group_id : "";
+
 		// var_dump($check_class);exit;
 
  ?>
@@ -31,7 +33,7 @@
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
-				<li>小组</li>
+				<li><a href="<?php echo site_url('group?group_id='.$setting_group_id); ?>">小组</a></li>				
 				<li class="active">小组灵修审核</li>
 			</ol>
 		</section>
