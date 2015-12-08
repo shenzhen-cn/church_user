@@ -424,12 +424,18 @@
                 <li><a href="<?php echo site_url('resetpassword'); ?>"><i class="fa fa-circle-o"></i> 修改密码</a></li>
               </ul>
             </li>
+           
 
             <li class="treeview">
-              <a href="<?php echo site_url('tq_about'); ?>">
+              <a href="#">
                 <i class="fa fa-file-word-o"></i>
                 <span>关于使命青年团契</span>
+                <i class="fa fa-angle-left pull-right"></i>
               </a>
+              <ul class="treeview-menu">
+                <li><a href="<?php echo site_url('tq_about'); ?>"><i class="fa fa-circle-o"></i> 信仰根基</a></li>
+                <li><a href="<?php echo site_url('tq_statement'); ?>"><i class="fa fa-circle-o"></i> 使用声明</a></li>
+              </ul>  
             </li>
           
             <li>

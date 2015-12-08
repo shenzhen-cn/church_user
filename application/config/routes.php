@@ -77,6 +77,8 @@ $route['read_myEdit']   			= 'priest_preach/read_myEdit';
 $route['del_prompt_alerts']   		= 'alert_messages/del_prompt_alerts';
 $route['add_praise']   	    		= 'home/add_praise';
 $route['del_all_praise_alert']   	= 'alert_messages/del_all_praise_alert';
+$route['tq_statement']          	= 'tq_about/tq_statement';
+
 
 
 

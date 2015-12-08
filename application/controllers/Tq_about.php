@@ -21,4 +21,18 @@ class Tq_about extends MY_Controller {
 		}
 
 	}
+
+	public function tq_statement()
+	{
+		if (! $this->session->userdata('access_token')) {
+
+			redirect(site_url('login'),'refresh');
+
+		} else {					
+			$data =  $this->tq_header_info();
+			
+			$this->load->view('tq_statement_view' ,isset($data) ? $data : "");
+			
+		}
+	}
 }
