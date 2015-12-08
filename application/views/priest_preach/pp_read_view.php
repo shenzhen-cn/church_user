@@ -25,7 +25,7 @@
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
-				<li><a href="<?php echo base_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
+				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
 				<li>牧师讲道</li>
 				<li class="active">在线阅读</li>
 			</ol>
@@ -49,10 +49,10 @@
 							<p class="box-title"><a onclick="window.history.back()"><i class="fa fa-arrow-left"></i></a></p>
 							<div class="box-tools pull-right">
 								<?php if (!empty($pre_id)) { ?>
-									<a href="<?php echo base_url('read_myEdit?document_id='."$pre_id"); ?>" class="btn btn-box-tool" data-toggle="tooltip" title="上一篇"><i class="fa fa-chevron-left"></i></a>
+									<a href="<?php echo site_url('read_myEdit?document_id='."$pre_id"); ?>" class="btn btn-box-tool" data-toggle="tooltip" title="上一篇"><i class="fa fa-chevron-left"></i></a>
 								<?php } ?>
 								<?php if (!empty($next_id)){ ?>
-									<a href="<?php echo base_url('read_myEdit?document_id='."$next_id"); ?>" class="btn btn-box-tool" data-toggle="tooltip" title="下一篇"><i class="fa fa-chevron-right"></i></a>
+									<a href="<?php echo site_url('read_myEdit?document_id='."$next_id"); ?>" class="btn btn-box-tool" data-toggle="tooltip" title="下一篇"><i class="fa fa-chevron-right"></i></a>
 								<?php	} ?>	
 							</div>
 						</div><!-- /.box-header -->
