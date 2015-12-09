@@ -343,7 +343,7 @@
 													</div>										 	        
 													<input  type="hidden" name="current_chapter_id" value="<?php echo $current_chapter_id; ?>">
 													<input  type="hidden" name="current_book_id" value="<?php echo $current_book_id; ?>">
-													<button type='button' class="pull-right btn btn-info">提交</button>
+													<button type='button' class="pull-right btn btn-info send_spiri">提交</button>
 												</form>
 												<?php	} ?>
 												
