@@ -3,7 +3,6 @@
 	$nick                    =      isset($user_info->nick) ? $user_info->nick : "" ;	
 	$sex                     =      isset($user_info->sex) ? $user_info->sex : "" ;	
 	$home_inform             = 		isset($home_inform) ? $home_inform : "";
-//var_dump($home_inform);exit;
 	$urgent_prayer           = 		isset($urgent_prayer) ? $urgent_prayer : "";
 	$bible_section           = 		isset($bible_section) ? $bible_section : "" ; 
 	$bible_note              = 		isset($bible_note) ? $bible_note : "" ; 
@@ -199,28 +198,32 @@
 							<h3 class="box-title" id="group-spiritual-learning">今日小组灵修</h3>
 
 							<div class="box-tools pull-right">
-								<span class="label label-danger" >灵修人数：<?php if(empty($user_spirituality)) echo '0'; else  echo count($user_spirituality);?>/<?php echo $count_users_group;	 ?></span>
+								<span class="label label-danger" >灵修人数：<span id="total_spiri"><?php if(empty($user_spirituality)) echo '0'; else  echo count($user_spirituality);?></span>/<?php echo $count_users_group;	 ?></span>
 								<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
 							</div>
 						</div><!-- /.box-header -->
 						<div class="box-body">
 							<div class="row">
 								<div class="col-md-12">
-								<?php if(!empty($status_spirituality)){ ?>
-									<a type='button' href='javascript:;' class="pull-left btn  btn-success"><i class="fa fa-smile-o"></i> 今天已灵修</a><br>
-								<?php }else{ ?>
-									<a type='button' href='javascript:;' class="pull-left btn  btn-info"><i class="fa  fa-frown-o"></i>  今天未灵修</a><br>
-								<?php } ?>
+
+									<div id="status_spiri">
+										<?php if(!empty($status_spirituality)){ ?>
+											<a type='button' href='javascript:;' class="pull-left btn  btn-success"><i class="fa fa-smile-o"></i> 今天已灵修</a><br>
+										<?php }else{ ?>
+											<a type='button' href='javascript:;' class="pull-left btn  btn-info"><i class="fa  fa-frown-o"></i>  今天未灵修</a><br>
+										<?php } ?>
+									</div>	
+
 									<h3 class="text-center"><b><?php echo $volume_name;?><i class="small"> (第<?php echo $current_chapter_id; ?> 章)</i> </b> </h3>
 									<div class="nav-tabs-custom">
-										<ul class="nav nav-tabs">
+										<ul class="nav nav-tabs home_nav_spiri_tabs">
 											<li class="active"><a href="#tab_1" data-toggle="tab">经文</a></li>
 											<li><a href="#tab_2" data-toggle="tab">解经</a></li>
 											<li><a href="#tab_3" data-toggle="tab">已灵修</a></li>
 										</ul>
 										<div class="tab-content">
 											<div class="tab-pane active" id="tab_1">
-													<table class="table table-striped table-hover">
+													<table class="table  table-hover">
 													<?php 	foreach ($bible_section as $k => $v) { 
 														$content = $v->content;
 														$chapter_id = $v->chapter_id;
@@ -251,8 +254,8 @@
 														</div>    
 													</div><!-- /.tab-pane -->
 													<div class="tab-pane" id="tab_3">
-														<?php if (	!empty($user_spirituality)) { ?>
 														<div class="">
+														<?php if (	!empty($user_spirituality)) { ?>
 															<?php 	foreach ($user_spirituality as $k => $v) {
 																$nick = isset($v->nick) ? $v->nick : "";
 																$s_user_id = isset($v->user_id) ? $v->user_id : "";
@@ -313,8 +316,8 @@
 																
 																<?php }?>
 																<?php } ?>	
-															</div>    
 															<?php } ?>	
+															</div>    
 														</div><!-- /.tab-pane -->
 													</div><!-- /.tab-content -->
 												</div><!-- nav-tabs-custom -->
@@ -325,22 +328,22 @@
 										<div class="row">
 											<div class="col-sm-12">																								
 												<?php if(empty($status_spirituality)){ ?>
-												<form action="<?php echo site_url('home/send_spirituality'); ?>" method="post">
+												<form type="form" id="form_send_spiri_panel">
 													<div class="form-group">
 														<label for="gold_sentence">选择金句：</label>
-														<textarea type="textarea" class="form-control" name="gold_sentence" value="121212112"  id="gold_sentence" length="400" placeholder="请点击选择上面的经文:" style="width: 100%; height: 70px; font-size: 14px; line-height: 20px;  solid #dddddd; padding: 10px;"></textarea>
+														<textarea type="textarea" class="form-control" rows="1"  maxlength="400" name="gold_sentence"   id="gold_sentence"  placeholder="请点击选择上面的经文:" ></textarea>
 													</div>
 													<div class="form-group">
 														<label for="heart_feeling">心得：</label>
-														<textarea onpropertychange="if(value.length>400) value=value.substr(0,400)"  maxlength="400"  onKeyDown="LimitTextArea(this)" onKeyUp="LimitTextArea(this)" onkeypress="LimitTextArea(this)" class="form-control" name="heart_feeling" placeholder="心得..." required="required" style="width: 100%; height: 70px; font-size: 14px; line-height: 20px;  solid #dddddd; padding: 10px;"></textarea>
+														<textarea  maxlength="400"  class="form-control" name="heart_feeling" placeholder="心得..." style="width: 100%; height: 70px; font-size: 14px; line-height: 20px;  solid #dddddd; padding: 10px;"></textarea>
 													</div>
 													<div class="form-group">
 														<label for="response">回应：</label>
-														<textarea onpropertychange="if(value.length>400) value=value.substr(0,400)"  maxlength="400"  onKeyDown="LimitTextArea(this)" onKeyUp="LimitTextArea(this)" onkeypress="LimitTextArea(this)"  class="form-control" name="response" placeholder="回应..." required="required" style="width: 100%; height: 125px; font-size: 14px; line-height: 20px; solid #dddddd; padding: 10px;"></textarea>
+														<textarea maxlength="400"   class="form-control" name="response" placeholder="回应..." required="required" style="width: 100%; height: 125px; font-size: 14px; line-height: 20px; solid #dddddd; padding: 10px;"></textarea>
 													</div>										 	        
 													<input  type="hidden" name="current_chapter_id" value="<?php echo $current_chapter_id; ?>">
 													<input  type="hidden" name="current_book_id" value="<?php echo $current_book_id; ?>">
-													<button type='submint' class="pull-right btn btn-info">提交</button>
+													<button type='button' class="pull-right btn btn-info">提交</button>
 												</form>
 												<?php	} ?>
 												
@@ -390,77 +393,10 @@
 						<?php } ?>						
 					</section><!-- /.content -->
 				</div><!-- /.content-wrapper -->
+				<input type="hidden" id="home_status_spirituality" value="<?php echo $status_spirituality; ?>">				
 
 	<?php $this->load->view('tq_footer'); ?>
-	<script>
-		$(document).ready(function(){
-		    $(".praise").click(function(){
-		      var spirituality_id = $(this).attr('data-spirituality-id');
-		      // alert(spirituality_id);
-		      var total_praises = $('.data-total-praises_'+spirituality_id).attr('data-total-praises');
-
-		     $.post("<?php echo site_url('add_praise') ?>",
-		        {
-		          spirituality_id:spirituality_id,
-		        },
-		       function(data,status){               
-		        if (data !== 'N') {
-		        	$(".praise_content_"+spirituality_id).empty();	
-		        	$(".praise_content_"+spirituality_id).removeClass("badge bg-red");
-		        	$('.praise_content_'+spirituality_id).html('<i class="fa fa-thumbs-o-up margin-r-5 "></i><span class="praise_content">已赞</span>');;	
-		           $(".data-total-praises_"+spirituality_id).html(++total_praises+'个人觉得很赞');		            
-
-		        }
-		       });
-		    });
-		    <?php if(empty($status_spirituality)){ ?>
-			    //插入经文
-			    $(".insert_gold_sentence").click(function() {
-		    		var chapterSectionId = $(this).attr("data-chapter-section-id");
-		    		var sectionId = $(this).attr("data-section-id");
-			    	var str = $(".content_"+sectionId).html();
-
-			    	var inserted   = $(this).hasClass("danger");
-
-
-			    
-			    	if(inserted == false){
-			    		// console.log('inserted=false' + chapterSectionId + str);
-				    	var t = confirm("你确定要经此经文"+chapterSectionId+"添加到金句中么？");
-				    	if(t == true){
-				     		$("#gold_sentence").append(chapterSectionId+str);
-				     		// $(this).addClass("inserted");
-				     		$(this).addClass("danger");
-
-				    	}
-
-			    	}else{
-				    	var t = confirm("你确定要清除金句中"+chapterSectionId+"节经文么？");
-				    	if(t == true){
-				    		var str_g_s = $("#gold_sentence").val();
-					    	var r_str_g_s = str_g_s.replace(chapterSectionId + str," ");
-				    		$("#gold_sentence").empty();
-				    		$("#gold_sentence").append(r_str_g_s);			    		
-				     		$(this).removeClass("danger");		    		
-				    	}
-			    	}
-			    });
-		    <?php } ?>
-		}); 
-
-		function LimitTextArea(field){ 
-		    maxlimit=400; 
-		    if (field.value.length > maxlimit){
-		        field.value = field.value.substring(0, maxlimit); 
-		        alert('系统提示，只可以输入400字！');
-		    } 
-		}
-
-		var tBox=document.getElementById('online_text');
-		var online_textHtml = tBox.innerHTML.slice(0,4000)+'<br><br><p class="bg-success"><i class="fa fa-hand-o-down "></i>&nbsp; (只显示部分，看完整内容，请点击)</p>';
-		tBox.innerHTML = online_textHtml;
-
-
-	</script>
+	<script src="<?php echo base_url(); ?>public/js/home_script.js"></script>
+	
 </body>
 </html>

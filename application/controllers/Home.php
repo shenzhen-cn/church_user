@@ -147,7 +147,6 @@ class Home extends MY_Controller {
 	public function send_spirituality()
 	{
 		$params['gold_sentence'] = $this->input->post('gold_sentence');
-		// var_dump($params);exit;
 		$params['heart_feeling'] = $this->input->post('heart_feeling');
 		$params['response'] = $this->input->post('response');
 		$params['current_chapter_id'] = $this->input->post('current_chapter_id');
@@ -155,41 +154,43 @@ class Home extends MY_Controller {
 		$params['user_id'] = $this->session->userdata('user_id'); 
 		$url = API_BASE_LINK.'home/send_spirituality';
 		$result = doCurl($url, $params, 'POST');
-		// var_dump($result);exit;
+
+		$obj  = array();
+
 		if ($result && $result['http_status_code'] ==200) {
 			$content = json_decode($result['output']);
 			$status_code	 = $content->status_code;
+			$params['spirituality_id']	 = $content->results;
 			$is_send  = null;
 
 			if ($status_code == 200) {
-				$is_send = $content->results;
+               $obj['status'] = 200; 				
+			}else{
+               $obj['status'] = 400; 				
 
-				if (! empty($is_send) && $is_send >=1 ) {
-
-					$this->session->set_flashdata('success', '阿们！你的灵修已提交！');
-				}
-
-			}	
-			redirect('home','refresh') ;
+			}			
 
 		}else{
-
-			show_404();exit();
+			echo json_encode('error');exit;		
 		}
+
+		$obj['params'] = $params;
+        echo json_encode($obj);exit;
 	}
 
-	// public function del_all_alert()
-	// {
-	// 	if (!$this->session->userdata('access_token')) {
-			
-	// 		redirect('login','refresh');
-	// 	}else {
-	// 		$user_id = $this->session->userdata('user_id');
+	public function ajax_load_html()
+	{
+		$data =  $this->tq_header_info();
 
-	// 		$count = $this->del_all_alert_by_user_id($user_id);				
-	// 		echo $count;
-	// 	}
-	// }	
+		$data['gold_sentence']    		= $this->input->post('gold_sentence');
+		$data['heart_feeling'] 			= $this->input->post('heart_feeling');
+		$data['response']      			= $this->input->post('response');
+		$data['spirituality_id']        = $this->input->post('spirituality_id');
+		$data['user_id']                = $this->session->userdata('user_id'); 
+
+		$this->load->view('ajaxhtml/home_ajax', isset($data) ? $data : "");
+
+	}	
 
 	public function add_praise()
 	{
