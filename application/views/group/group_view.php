@@ -115,7 +115,7 @@
 													$userHead_src    = isset($v->userHead_src) ? $v->userHead_src : "";
 											 ?>
 												<li>
-													<a href="<?php echo site_url('seeMember?user_id='.$group_user_id); ?>" onclick="return seeUser(<?php echo $count_spirituality; ?>)">
+													<a href="<?php echo site_url('seeMember?user_id='.$group_user_id.'&content=coments'); ?>" onclick="return seeUser(<?php echo $count_spirituality; ?>)">
 													<?php if (empty($userHead_src)) {?>
 													   <img src="<?php echo base_url(); ?>public/images/mrpho.jpg"   alt="User Image" >
 													<?php } else { ?>
