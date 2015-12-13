@@ -39,15 +39,15 @@
             <!-- form start -->
             <form role="form" action="<?php echo site_url('personal/modify_user_data'); ?>" method='post'>
               <div class="box-body box-profile">
-                 <a href="<?php echo site_url("personal/replace_headSrc"); ?>">
                     <?php  if(!empty($userHeadSrc_info)){ ?>
+                        <a href="<?php echo site_url("personal/replace_headSrc"); ?>">
                           <img id="userHead_pho_preview" class="profile-user-img img-responsive img-circle" src="<?php echo base_url()."public/uploads/userHeadsrc/$userHeadSrc_info"; ?>" style="width:150px;height:150px;" alt="上传头像">
-                          <input type="hidden" name="userHeadSrc" id="userHeadSrcId" value="<?php echo $userHeadSrc_info; ?>">
+                        </a>                          
                      <?php }else{ ?>
+                        <a href="<?php echo site_url("personal/replace_headSrc"); ?>">
                           <img id="userHead_pho_preview" class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>public/images/mrpho.jpg" style="width:150px;height:150px;" alt="上传头像">
-                          <input type="hidden" name="userHeadSrc" id="userHeadSrcId" value="<?php echo $userHeadSrc_info; ?>">
+                        </a>  
                     <?php } ?>
-                  </a>
 
                 <h3 class="profile-username text-center"><?php echo $user_nick; ?></h3>                
                 </div><!-- /.box-body -->
