@@ -32,7 +32,7 @@
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
-				<li>祷告墙</li>
+				<li><a href="<?php echo site_url('Wallofprayer'); ?>">祷告墙</a></li>
 				<li class="active">今日祷告</li>
 			</ol>
 		</section>
