@@ -8,8 +8,8 @@ class Register extends MY_Controller {
      */
     public function __construct() {
         parent::__construct();
-        $this->load->library('upload');
-        $this->load->helpers('uploadfiles');
+        // $this->load->library('upload');
+        // $this->load->helpers('uploadfiles');
 
     }
 
@@ -66,16 +66,15 @@ class Register extends MY_Controller {
 
 	public function improveInformation()
 	{
-		$fileInfo = $_FILES['uploadphoto'];		
-		$uploadPath = "/var/www/html/church/church_user/public/uploads/userHeadsrc";
-		$params['userHeadSrc']	= uploadFiles( $fileInfo,$uploadPath)['newName'];		
+		// $fileInfo = $_FILES['uploadphoto'];		
+		// $uploadPath = "/var/www/html/church/church_user/public/uploads/userHeadsrc";
+		// $params['userHeadSrc']	= uploadFiles( $fileInfo,$uploadPath)['newName'];		
 		$params['sex'] 	  		 = $this->input->post('sex');
 		$params['group_id'] 	 = $this->input->post('group_id');
 		$params['user_id'] 		 = $this->session->userdata('user_id');
 		$url = API_BASE_LINK.'register/improveInformation';
 		$result = doCurl($url, $params, 'POST');
-		$is_bool = json_decode($result['output'])->results;
-		redirect(site_url('login'),'refresh');
+		redirect('login','refresh');
 
 
 	}

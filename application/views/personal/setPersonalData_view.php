@@ -1,7 +1,6 @@
 <?php   
     $userHeadSrc_info = isset($userHeadSrc_info) ? $userHeadSrc_info : "";
     $user_nick =  isset($user_info->nick) ? $user_info->nick : "";
-    // var_dump($user_nick);exit;
     $user_info_group_id = isset($user_info->group_id) ?  $user_info->group_id : "";
 ?>
 <!DOCTYPE html>
@@ -38,27 +37,22 @@
               <h3 class="box-title">更改基本资料</h3>
             </div><!-- /.box-header -->
             <!-- form start -->
-            <form role="form" action="<?php echo site_url('personal/upload_photo'); ?>" onSubmit="return check();" method='post' enctype="multipart/form-data">
+            <form role="form" action="<?php echo site_url('personal/modify_user_data'); ?>" method='post'>
               <div class="box-body box-profile">
-                <?php  if(!empty($userHeadSrc_info)){ ?>
-                      <img id="userHead_pho_preview" class="profile-user-img img-responsive img-circle" src="<?php echo base_url()."public/uploads/userHeadsrc/$userHeadSrc_info"; ?>" style="width:150px;height:150px;" alt="上传头像">
-                      <input type="hidden" name="userHeadSrc" id="userHeadSrcId" value="<?php echo $userHeadSrc_info; ?>">
-                 <?php }else{ ?>
-                      <img id="userHead_pho_preview" class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>public/images/mrpho.jpg" style="width:150px;height:150px;" alt="上传头像">
-                      <input type="hidden" name="userHeadSrc" id="userHeadSrcId" value="<?php echo $userHeadSrc_info; ?>">
-                <?php } ?>
+                 <a href="<?php echo site_url("personal/replace_headSrc"); ?>">
+                    <?php  if(!empty($userHeadSrc_info)){ ?>
+                          <img id="userHead_pho_preview" class="profile-user-img img-responsive img-circle" src="<?php echo base_url()."public/uploads/userHeadsrc/$userHeadSrc_info"; ?>" style="width:150px;height:150px;" alt="上传头像">
+                          <input type="hidden" name="userHeadSrc" id="userHeadSrcId" value="<?php echo $userHeadSrc_info; ?>">
+                     <?php }else{ ?>
+                          <img id="userHead_pho_preview" class="profile-user-img img-responsive img-circle" src="<?php echo base_url(); ?>public/images/mrpho.jpg" style="width:150px;height:150px;" alt="上传头像">
+                          <input type="hidden" name="userHeadSrc" id="userHeadSrcId" value="<?php echo $userHeadSrc_info; ?>">
+                    <?php } ?>
+                  </a>
+
                 <h3 class="profile-username text-center"><?php echo $user_nick; ?></h3>                
                 </div><!-- /.box-body -->
 
-                <div class="box-body">
-                  <div class="form-group">
-                    <div class="btn btn-primary btn-file">
-                      <i class="fa fa-picture-o"></i> 上传头像
-                      <input type="file" id="up_userHead_src" class="btn btn-primary btn-block" name="uploadphoto" onchange="loadUserHeadAsURL();"  >
-                      <input type="hidden" id="userHead_pho" style="width:150px;height:150px;" alt="上传头像" /> 
-                    </div>
-                    <p class="help-block">文件不大于：2M</p>
-                  </div>
+                <div class="box-body">                 
                   <div class="form-group">
                     <label for="user_nick">昵称：</label>
                     <?php   if (! empty($user_info)) { ?>
@@ -113,55 +107,7 @@
       </div><!-- /.content-wrapper -->
 
       <?php $this->load->view('tq_footer'); ?>
-      <script>
-
-        var user_headSrc = '<?php echo $userHeadSrc_info; ?>';
-
-        var userHeadSrcId = document.getElementById("userHeadSrcId").value;
-        // console.log(userHeadSrcId);
-
-        function loadUserHeadAsURL() {          
-          var filesSelected = document.getElementById("up_userHead_src").files;
-          if (filesSelected.length > 0)
-          {
-            var fileToLoad = filesSelected[0];
-            var f = document.getElementById("up_userHead_src").value;
-            
-            if (!/\.(png|jpg|jpeg)$/.test(f)){
-
-              alert("图片类型必须是PNG,JPEG,JPG中的一种")
-              return false;
-            }
-            else if (fileToLoad.size > 2*1024*1024 ) {
-             alert("文件不能大于2M，请再次选择！");
-             return false;
-           }
-           
-           var fileReader = new FileReader();
-           fileReader.onload = function(fileLoadedEvent) 
-           {
-            var logo_encoded = document.getElementById("userHead_pho");
-            var logo_preview = document.getElementById("userHead_pho_preview");
-            logo_encoded.value = fileLoadedEvent.target.result;
-            logo_preview.setAttribute('src', fileLoadedEvent.target.result);
-          };
-          fileReader.readAsDataURL(fileToLoad);          
-          document.getElementById("userHeadSrcId").value="";
-        }else{
-          if(user_headSrc.length > 0 ){
-            return true
-          }else{            
-            alert('请上传头像！');
-            return false;
-          }
-        }
-      };
-
-      function check () {
-        return loadUserHeadAsURL();
-      };
-     
-    </script>  
+       
 
     
   </body>
