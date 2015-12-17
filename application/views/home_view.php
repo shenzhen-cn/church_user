@@ -223,7 +223,7 @@
 										</ul>
 										<div class="tab-content">
 											<div class="tab-pane active" id="tab_1">
-													<table class="table  table-hover">
+													<table id="bibile_section_table" class="table  table-hover">
 													<?php 	foreach ($bible_section as $k => $v) { 
 														$content = $v->content;
 														$chapter_id = $v->chapter_id;
@@ -254,7 +254,7 @@
 														</div>    
 													</div><!-- /.tab-pane -->
 													<div class="tab-pane" id="tab_3">
-														<div class="">
+														<div id="user_spiri" >
 														<?php if (	!empty($user_spirituality)) { ?>
 															<?php 	foreach ($user_spirituality as $k => $v) {
 																$nick = isset($v->nick) ? $v->nick : "";

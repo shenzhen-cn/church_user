@@ -99,6 +99,22 @@
 								$(firstLi_a_href_tab_id).removeClass("active");
 							}							
 
+							// update	
+
+							var secondLi = $(this).children().eq(1);
+
+							if($(secondLi).hasClass("active")){
+								secondLi.removeClass("active");
+							}	
+
+
+							var secondLi_a_href_tab_id = secondLi.children().attr('href');
+							if($(secondLi_a_href_tab_id).hasClass("active")){
+								$(secondLi_a_href_tab_id).removeClass("active");
+							}
+
+							// end update
+
 							var lastLi  = $(this).children().last();
 								lastLi.addClass("active");
 							var lastLi_a_href_tab_id = lastLi.children().attr('href');
@@ -121,7 +137,16 @@
 								data: {gold_sentence:gold_sentence,heart_feeling:heart_feeling,response: response,spirituality_id:spirituality_id},
 							});   							
 
-							$(lastLi_a_href_tab_id).before(htmlobj.responseText);  		    		
+							// $(lastLi_a_href_tab_id).before(htmlobj.responseText);  		    		
+							$('#user_spiri').before(htmlobj.responseText); 
+							$("#bibile_section_table tr").each(function (key, value) {  
+								if($(this).hasClass('danger')){
+									$(this).removeClass("danger");									
+									$(this).css({
+						     			"font-size": '14px'			     			
+						     		});
+								}																
+							}); 
 							
 						});
 
