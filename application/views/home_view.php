@@ -331,7 +331,7 @@
 												<form type="form" id="form_send_spiri_panel">
 													<div class="form-group">
 														<label for="gold_sentence">选择金句：</label>
-														<textarea type="textarea" class="form-control" rows="1"  maxlength="400" name="gold_sentence"   id="gold_sentence"  placeholder="请点击选择上面的经文:" ></textarea>
+														<textarea type="textarea" class="form-control" rows="1"  maxlength="400" name="gold_sentence"   id="gold_sentence"  placeholder="请点击选择上面的经文:" readonly="readonly" ></textarea>
 													</div>
 													<div class="form-group">
 														<label for="heart_feeling">心得：</label>
