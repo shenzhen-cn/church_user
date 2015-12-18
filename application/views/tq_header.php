@@ -255,10 +255,10 @@
                   <!-- Menu Body -->
                   <li class="user-body">
                     <div class="col-xs-6 text-center">
-                      <a href="<?php echo site_url('home#spiritual_learning'); ?>">灵修</a>
+                      <a href="<?php echo site_url('home#spiritual_learning'); ?>" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-fire" aria-hidden="true"></span>我要灵修</a>
                     </div>
                     <div class="col-xs-6 text-center">
-                      <a href="<?php echo site_url('wallofprayer/prayer#urgent_prayer'); ?>">祷告</a>
+                      <a href="<?php echo site_url('wallofprayer/prayer#urgent_prayer'); ?>" class="btn btn-default btn-xs"><span class="glyphicon glyphicon-grain" aria-hidden="true"></span>我要祷告</a>
                     </div>
                   </li>
                   <!-- Menu Footer-->
