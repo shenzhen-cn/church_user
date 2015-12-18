@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<title>小组-使命青年团契</title>
+<title>光荣榜-使命青年团契</title>
 <?php $this->load->view('tq_head'); ?>
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
@@ -14,12 +14,12 @@
 		<!-- Content Header (Page header) -->
 		<section class="content-header">
 			<h1>
-				小组
+				光荣榜
 				<small>IN GOD WE TRUST</small>
 			</h1>
 			<ol class="breadcrumb">
 				<li><a href="<?php echo site_url('home'); ?>"><i class="fa fa-dashboard"></i> 首页</a></li>
-				<li class="active">小组</li>
+				<li class="active">光荣榜</li>
 			</ol>
 		</section>
 
