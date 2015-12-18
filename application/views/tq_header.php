@@ -404,7 +404,13 @@
               <a href="<?php echo site_url('Wallofprayer'); ?>">
                 <i class="fa fa-fire"></i> <span>祷告墙</span>
               </a>
-            </li>            
+            </li>
+                        
+            <li>
+              <a href="<?php echo site_url('personal/get_honor_list'); ?>">
+                <i class="fa fa-graduation-cap"></i> <span>光荣榜</span>
+              </a>
+            </li>
 
             <li>
               <a href="<?php echo site_url('calendar'); ?>">

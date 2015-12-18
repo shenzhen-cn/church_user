@@ -214,6 +214,41 @@ class Personal extends MY_Controller {
 		redirect('personal/setPersonalData','refresh');
 	}
 
+	// update  12-17
+
+	public function get_honor_list()
+	{
+		if (!$this->session->userdata('access_token')) {
+			
+			redirect('login','refresh');
+		}else {
+
+			$type = $this->input->get('listType');			
+			$data =  $this->tq_header_info();
+
+			$get_honor_list = doCurl(API_BASE_LINK.'personal/get_honor_list');
+
+			if ($get_honor_list && $get_honor_list['http_status_code'] ==200) {
+				$content = json_decode($get_honor_list['output']);
+				$status_code	 = $content->status_code;
+				if ($status_code == 200) {
+					$user_info_count_spirit_results = $content->results->user_info_count_spirit_results;
+					$user_info_count_prayer_results = $content->results->user_info_count_prayer_results;
+				}
+			}			
+			if ($type == 'prayer') {			
+				$data['user_info_count_prayer_results'] = $user_info_count_prayer_results;
+				$this->load->view('personal/get_honor_prayer_list_view' , isset($data) ? $data : "");				
+			}else{
+
+				$data['user_info_count_spirit_results']  =  $user_info_count_spirit_results;
+				$this->load->view('personal/get_honor_list_view' , isset($data) ? $data : "");
+			}
+
+		}	
+	}
+
+
 }
 
 		
