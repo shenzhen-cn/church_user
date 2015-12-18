@@ -54,7 +54,7 @@
 									 <?php   } ?> 
 								</td>
 								<td>
-									<a href="<?php echo site_url('seeMember?user_id=').$spirit_honor_list_user_id."&content=coments"; ?>" class="name">
+									<a href="<?php echo site_url('seeMember?user_id=').$spirit_honor_list_user_id."&content=replies"; ?>" class="name">
 									  <?php echo $spirit_honor_list_user_nick; ?>
 									</a>
 								</td>
