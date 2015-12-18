@@ -26,6 +26,7 @@
 						<th>何时加入</th>
 						<th>在线天数</th>
 						<th>祷告总数</th>
+						<th>应祷告总数</th>						
 						<th>比率条</th>
 						<th>祷告率</th>
 					</tr>
@@ -43,6 +44,8 @@
 								$user_already_reg_day = $value->already_reg_day;
 								$user_count_prayer = $value->user_count_prayer;
 								$user_prayer_rate = $value->prayer_rate;
+								$user_count_prayers = $value->count_prayers;
+
 						?>
 							<tr>
 								<td><?php echo $i; ?></td>
@@ -72,7 +75,10 @@
 								</td>
 								<td>
 									<?php echo $user_count_prayer; ?>
-								</td>												
+								</td>
+								<td>
+									<?php echo $user_count_prayers; ?>
+								</td>																												
 								<td>
 									<div class="progress progress-xs">
 									  <div class="progress-bar progress-bar-danger" style="width: <?php echo $user_prayer_rate; ?>; ?>"></div>
