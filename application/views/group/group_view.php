@@ -5,7 +5,6 @@
 		$user_id 				= isset($user_id) ? $user_id : "" ;
 		$user_group_id          = isset($user_info->group_id) ? $user_info->group_id : "";
 		$group_users 			= isset($group_users) ? $group_users : "" ;
-//		var_dump($group_users);exit;
 		$group_name 			= isset($group_name) ? $group_name : "" ;
 		$week_s_report 			= isset($week_s_report) ? $week_s_report : "" ;
 		$week_firstday 			= isset($week_firstday) ? $week_firstday : "" ;
@@ -108,8 +107,11 @@
 									<div class="col-md-12">
 										<ul class="users-list">
 											<?php foreach ($group_users as $k => $v) {
+													$user_status = $v->use_status; 
+													if ($user_status != 'A') {
+														continue;
+													}
 													$group_user_id = $v->user_id;
-													// var_dump($group_user_id);exit;
 													$nick    = $v->nick;
 													$count_spirituality    = $v->count_spirituality;
 													$userHead_src    = isset($v->userHead_src) ? $v->userHead_src : "";
@@ -159,7 +161,14 @@
 										</tr>
 									</thead>
 									<tbody>
-									<?php foreach ($week_s_report as $k => $v) { 
+									<?php
+										$no = 1;										 
+										foreach ($week_s_report as $k => $v) { 
+
+											$group_user_status = $v->use_status;
+											if($group_user_status != 'A'  ){
+												continue;
+											}											
 											$group_user_id = $v->group_user_id;
 											$group_user_nick = $v->group_user_nick;
 											$this_week_count = $v->this_week_count;
@@ -174,7 +183,7 @@
 										?>
 
 										<tr class="<?php echo $danger; ?>">
-											<td><?php echo $k+1; ?></td>
+											<td><?php echo $no; ?></td>
 											<td><?php echo $group_user_nick; ?></td>
 											<td><?php echo $this_week_count; ?></td>
 											<td><?php echo $should_completed_counts - $this_week_count; ?></td>
@@ -191,7 +200,7 @@
 											</td>										
 										</tr>
 										
-									<?php } ?>
+									<?php $no++ ;} ?>
 
 									</tbody>
 								</table><!-- /.table -->
